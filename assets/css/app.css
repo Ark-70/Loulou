@@ -1,0 +1,10 @@
+html {
+  font-size: 20px
+}
+
+/* debug */
+.debug-trace { background-color: #B4242F; color: gray;padding: 0.5em;margin-bottom: 5px}
+.debug-trace pre {background-color: white; color:black}
+.debug-trace-line-info {font-style: italic;color: #EB8B93;margin: 0;font-size: 0.8em}
+
+.container-wrapper {width: 80%;margin: 20px auto}
