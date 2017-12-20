@@ -2,16 +2,9 @@
 
 namespace App\Models;
 
-class Param extends Base{
-  protected $tableName = TABLE_PREFIX . 'param';
-
-  private static $instance;
-
-  public static function getInstance(){
-    if ( !isset(self::$instance) ){
-    self::$instance = new Article();
-  }
-  return self::$instance;
-  }
+class Param extends Model{
+  protected $allowed_properties = ['id', 'title', 'status', 'copyright',
+  'random'];
+  protected $pk_name = 'id';
 }
 ?>

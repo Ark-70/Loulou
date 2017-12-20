@@ -1,17 +1,9 @@
 <?php
 
-namespace Models;
+namespace App\Models;
 
-class Tile extends Base{
-  protected $tableName = TABLE_PREFIX . 'tiles';
-
-  private static $instance;
-
-  public static function getInstance(){
-    if ( !isset(self::$instance) ){
-    self::$instance = new Tile();
-  }
-  return self::$instance;
-  }
+class Tile extends Model{
+  protected $allowed_properties = ['id', 'title', 'description', 'image', 'layout', 'bg_color_text', 'color_text', 'position', 'bg_color_image', 'auto_size'];
+  protected $pk_name = 'id';
 }
 ?>

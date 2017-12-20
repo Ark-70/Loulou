@@ -1,6 +1,6 @@
 <?php
 
-namespace Libs;
+namespace App\Libs;
 
 class exPDO extends \PDO {
   // instance de la classe
