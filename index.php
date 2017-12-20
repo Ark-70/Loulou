@@ -1,12 +1,9 @@
 <?php
+// faire attention avec les namespace
 
-require_once('app/bootstrap.php');
-
-global $blade;
-  echo $blade->render(
-    'accueil'
-  );
-
-
-
-?>
+/*
+ index.php
+ ---------------------------------------------------------------
+	le routeur FRONTAL
+ */
+include 'app/bootstrap.php';
