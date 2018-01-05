@@ -1,9 +1,17 @@
 <?php
+namespace Models;
 
-namespace App\Models;
+class Admin extends Base{
+  protected $tableName = TABLE_PREFIX . 'admin';
 
-class Admin extends Model{
-  protected $allowed_properties = ['id', 'pseudo', 'password', 'email'];
-  protected $pk_name = 'id';
+  private static $instance;
+
+  public static function getInstance(){
+    if ( !isset(self::$instance) ){
+    self::$instance = new Article();
+  }
+  return self::$instance;
+  }
+
 }
 ?>

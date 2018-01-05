@@ -6,7 +6,8 @@
 * @git      https://github.com/wickyaswal/PHP-MySQL-PDO-Database-Class
 * @version      0.1a
 */
-namespace App\Libs;
+namespace Libs;
+
 class Log {
 
   // dossier d'enregistrement des logs par défaut
@@ -24,7 +25,9 @@ class Log {
       $this->path  = $path;
     } else {
       $this->path  = __DIR__  . $this->path;
+
     }
+    // var_dump( $this->path );die();
 
   }
 
@@ -40,7 +43,9 @@ class Log {
     $date = new \DateTime();
     $log = $this->getFileName();
     // vérifier que le dossier existe
+    // var_dump( $this->path );die();
     if ( is_dir($this->path) ) {
+
       // vérifier si le fichier de journalisation existe ...
       if( !file_exists($log) ) {
         // si le fichier n'existe pas, on le crée

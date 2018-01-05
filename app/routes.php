@@ -10,6 +10,7 @@ $route->addRoute( 'POST' , '/tile/edit/{id:[0-9]+}'   , 'TileController@editSave
 
 $route->addRoute( 'GET' , '/backoffice'               , 'BoController@index' );
 $route->addRoute( 'GET' , '/login'                    , 'BoController@login' );
+$route->addRoute( 'POST', '/login'                    , 'BoController@checkLogin' );
 
 /*// AJAX
 $route->addRoute( ['GET','POST'], '/ajax/{controller}/{method}[/{id}]', 'AjaxController@index' );

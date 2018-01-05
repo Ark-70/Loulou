@@ -1,10 +1,10 @@
 <?php
-//
-// FICHIER : app / Controllers / controllers.php
-//
-use App\Models\PostDAO;
-use App\Models\Post;
+namespace Controllers;
 
-/**
- * Affiche les billets.
- */
+class Controller {
+
+  function __construct()
+  {
+
+  }
+}
