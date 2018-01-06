@@ -7,9 +7,8 @@ use Models\Admin;
 class BoController extends Controller
 {
 
-  public function index(){
+  public function boIndex(){
     global $blade;
-echo 'Hell';
     if(isset($_SESSION['login'])){
     // s'il est bien login, index sinon redirigé pour se login
       echo $blade->render(
@@ -44,7 +43,14 @@ echo 'Hell';
   public function checkLogin(){
     global $blade;
 
-    if ($_POST['username']==='box' && $_POST['password']==='box') {
+    $passInput = $_POST['password'];
+    $usernameInput = $_POST['username'];
+    $adminUn = Admin::getInstance()->get(1);
+    dump($adminUn);
+
+    // réorganiser username avant non ? peut-être pas pour chercher quel admin il faut chercher en sql
+
+    if ($usernameInput===$adminUn['pseudo'] && sha1($passInput)===$adminUn['password']) {
 
       $_SESSION['login']=true;
 
