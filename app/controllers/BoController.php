@@ -45,26 +45,21 @@ class BoController extends Controller
 
     $passInput = $_POST['password'];
     $usernameInput = $_POST['username'];
-    $adminUn = Admin::getInstance()->get(1);
-    dump($adminUn);
+    $admins = Admin::getInstance()->getAll();
 
-    // réorganiser username avant non ? peut-être pas pour chercher quel admin il faut chercher en sql
 
-    if ($usernameInput===$adminUn['pseudo'] && sha1($passInput)===$adminUn['password']) {
+    foreach ($admins as $admin) {
+      if($usernameInput===$admin['pseudo'] && sha1($passInput)===$admin['password']){
+        $_SESSION['login']=true;
+        break;
+      }
+    }
 
-      $_SESSION['login']=true;
-
+    if($_SESSION['login']){
       redirect('/backoffice');
-
     }else{
       $error = true;
-      echo $blade->render(
-        'backoffice/login',
-        [
-          'error' => $error
-        ]
-      );
-
+      redirect('/error');
     }
 
   }
