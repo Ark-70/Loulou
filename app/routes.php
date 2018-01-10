@@ -1,5 +1,6 @@
 <?php
 $route->addRoute( 'GET'  , '/'                        , 'TileController@index' );
+$route->addRoute( 'GET'  , '/error'                   , 'TileController@error' );
 
 $route->addRoute( 'GET'  , '/tile/show/{id:[0-9]+}'   , 'TileController@show' );
 $route->addRoute( 'GET'  , '/tile/delete/{id:[0-9]+}' , 'TileController@delete' );
@@ -8,7 +9,8 @@ $route->addRoute( 'POST' , '/tile/add'                , 'TileController@addSave'
 $route->addRoute( 'GET'  , '/tile/edit/{id:[0-9]+}'   , 'TileController@edit' );
 $route->addRoute( 'POST' , '/tile/edit/{id:[0-9]+}'   , 'TileController@editSave' );
 
-$route->addRoute( 'GET' , '/backoffice'               , 'BoController@index' );
+$route->addRoute( 'GET' , '/backoffice'               , 'BoController@boIndex' );
+$route->addRoute( 'GET' , '/bo'                       , 'BoController@boIndex' ); //Raccourci
 $route->addRoute( 'GET' , '/login'                    , 'BoController@login' );
 $route->addRoute( 'POST', '/login'                    , 'BoController@checkLogin' );
 

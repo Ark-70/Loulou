@@ -21,6 +21,17 @@ class TileController extends Controller
 
   }
 
+  public function error(){
+    global $blade;
+
+    echo $blade->render(
+        'backoffice/login',
+        [
+          'error' => $error
+        ]
+      );
+  }
+
   public function show($id)
   {
     global $blade;

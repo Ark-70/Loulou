@@ -7,9 +7,8 @@ use Models\Admin;
 class BoController extends Controller
 {
 
-  public function index(){
+  public function boIndex(){
     global $blade;
-echo 'Hell';
     if(isset($_SESSION['login'])){
     // s'il est bien login, index sinon redirigé pour se login
       echo $blade->render(
@@ -44,21 +43,23 @@ echo 'Hell';
   public function checkLogin(){
     global $blade;
 
-    if ($_POST['username']==='box' && $_POST['password']==='box') {
+    $passInput = $_POST['password'];
+    $usernameInput = $_POST['username'];
+    $admins = Admin::getInstance()->getAll();
 
-      $_SESSION['login']=true;
 
+    foreach ($admins as $admin) {
+      if($usernameInput===$admin['pseudo'] && sha1($passInput)===$admin['password']){
+        $_SESSION['login']=true;
+        break;
+      }
+    }
+
+    if($_SESSION['login']){
       redirect('/backoffice');
-
     }else{
       $error = true;
-      echo $blade->render(
-        'backoffice/login',
-        [
-          'error' => $error
-        ]
-      );
-
+      redirect('/error');
     }
 
   }
