@@ -41,22 +41,41 @@ Ajouter
 </button>
 <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Ajouter une tuile</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        </button>
-      </div>
-      <div class="modal-body">
+    <form action="">
+      <div class="modal-content">
 
+        <div class="modal-header">
+          <h5 class="modal-title">Ajouter une tuile</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">iCloseFont</button>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Titre</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrer titre">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Description</label>
+            <textarea type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Écrire description"></textarea>
+          </div>
+
+
+        </div>
       </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-      <button type="button" class="btn btn-primary  " data-dismiss="modal">Ajouter</button>
-    </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
+        <button type="button" class="btn btn-primary  " data-dismiss="modal">Ajouter</button>
+      </div>
+    </form>
   </div>
 </div>
+            <div class="custom-file col-1">
+              <input type="file" class="custom-file-input" id="customFile">
+              <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make( 'layout' , array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
