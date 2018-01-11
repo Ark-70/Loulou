@@ -20,18 +20,19 @@ Accueil
     </div>
     <nav class="navbar fixed-left navbar-dark">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent">
-      <span class="navbar-toggler-icon"></span>
+      <i class="fa fa-bars"></i>
       </button>
     </nav>
   </div>
 </div>
 
 
+
 <div class="grille">
     <div class="container">
       <div class="row">
         <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
+          <a href="#" data-toggle="modal" data-target="#myModal"><img src="http://www.elementsofstyleblog.com/wp-content/uploads/2010/02/600x400-princeville-sunset.jpg" class="img-fluid"></a>>
         </div>
       <div class="tuile col-4" >
           <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
@@ -60,4 +61,13 @@ Accueil
       </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
 @endsection
+

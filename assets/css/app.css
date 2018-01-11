@@ -37,6 +37,7 @@ h1,label{
   padding-top: 3rem;
   padding-bottom: 3rem;
   background-color: #696969;
+  z-index:0;
 }
 
 .tuile
@@ -44,3 +45,8 @@ h1,label{
   padding:10px;
 }
 
+.zoom
+{
+  z-index:2;
+  background-color:red;
+}
