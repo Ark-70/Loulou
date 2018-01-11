@@ -8,6 +8,7 @@ $route->addRoute( 'POST' , '/tile/add'                , 'TileController@addSave'
 $route->addRoute( 'GET'  , '/tile/edit/{id:[0-9]+}'   , 'TileController@edit' );
 $route->addRoute( 'POST' , '/tile/edit/{id:[0-9]+}'   , 'TileController@editSave' );
 
+$route->addRoute( 'GET' , '/bo'               , 'BoController@index' );
 $route->addRoute( 'GET' , '/backoffice'               , 'BoController@index' );
 $route->addRoute( 'GET' , '/login'                    , 'BoController@login' );
 $route->addRoute( 'POST', '/login'                    , 'BoController@checkLogin' );
