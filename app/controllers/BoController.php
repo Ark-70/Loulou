@@ -42,10 +42,12 @@ class BoController extends Controller
 
   public function checkLogin(){
     global $blade;
+    //Si on arrive ici, alors ça veut dire que !isset($_SESSION['login'])
 
     $passInput = $_POST['password'];
     $usernameInput = $_POST['username'];
     $admins = Admin::getInstance()->getAll();
+
 
 
     foreach ($admins as $admin) {
@@ -55,11 +57,11 @@ class BoController extends Controller
       }
     }
 
-    if($_SESSION['login']){
+    if (isset($_SESSION['login'])) {
+      // = un admin s'est login
       redirect('/backoffice');
     }else{
-      $error = true;
-      redirect('/error');
+      redirect('/login');
     }
 
   }

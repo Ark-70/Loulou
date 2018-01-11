@@ -1,8 +1,7 @@
-@extends( 'layout' )
-@section('title')
+<?php $__env->startSection('title'); ?>
 Accueil
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 <h1> Back-office </h1>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tuile">
 Voir tuiles
@@ -114,4 +113,6 @@ marche pas
   </div>
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make( 'layout' , array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

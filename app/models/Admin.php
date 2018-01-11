@@ -8,7 +8,7 @@ class Admin extends Base{
 
   public static function getInstance(){
     if ( !isset(self::$instance) ){
-    self::$instance = new Article();
+    self::$instance = new Admin();
   }
   return self::$instance;
   }
