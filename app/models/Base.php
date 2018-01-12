@@ -59,7 +59,7 @@ class Base {
    * @param  array  $datas
    * @return integer
    */
-  public function edit( $id , $datas )
+  public function edit($id, $datas)
   {
     $sql = "UPDATE ".$this -> tableName." SET ";
     foreach( array_keys( $datas ) as $k ) {
@@ -80,7 +80,7 @@ class Base {
    * @param  integer  $id identifiant
    * @return void
    */
-  public function get( $id = null )
+  public function get($id = null)
   {
     $sql = "SELECT * FROM {$this->tableName} WHERE id = :id";
     $sth = $this->pdo->prepare( $sql );
@@ -123,7 +123,7 @@ class Base {
    * Efface l'identifiant.
    * @return int|boolean
    */
-  public function deleteAll(  )
+  public function deleteAll()
   {
     $sql = "DELETE FROM {$this->tableName}";
     $sth = $this->pdo->prepare($sql);

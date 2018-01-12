@@ -18,6 +18,42 @@ class BoController extends Controller
     }else{
       redirect('/login');
     }
+  }
+
+  public function boIndexAddFail(){
+    global $blade;
+    $warningmessage = "Erreur lors de l'ajout de la tuile : Tuile non ajoutée";
+
+    if(isset($_SESSION['login'])){
+      echo $blade->render(
+        'backoffice/boaddmsg',
+        [
+          'msg' => $warningmessage
+        ]
+      );
+
+    }else{
+      redirect('/login');
+    }
+
+  }
+
+  public function boIndexAddSuccess(){
+    global $blade;
+
+    $warningmessage = "Tuile ajoutée avec succès";
+
+    if(isset($_SESSION['login'])){
+      echo $blade->render(
+        'backoffice/boaddmsg',
+        [
+          'msg' => $warningmessage
+        ]
+      );
+
+    }else{
+      redirect('/login');
+    }
 
   }
 
@@ -66,10 +102,13 @@ class BoController extends Controller
 
   }
 
-  public function PrepTileSave(){
+  public function prepTileSave(){
     global $blade;
-// TESTER D'APPELER CETTE FONCTION DIRECTEMENT DANS LA VUE ET ENVEVER LE ACTION DU FORM
+// TESTER D'APPELER CETTE FONCTION DIRECTEMENT DANS LA VUE ET ENLEVER LE ACTION DU FORM ==== TESTIMG() PUIS SAVEIMG()
+// SINON FAIRE EN SORTE QUE LA VUE RENVOIE VERS PREPTILESAVE, QUI REDIRECT VERS LE BOINDEX MAIS AVEC DES DONNÉES À ENVOYER À BLADE
 
+
+    $error = false;
 
     if (!empty($_POST)) {
       // afficher - en debug- les informations sur le fichier uploadé
@@ -88,8 +127,40 @@ class BoController extends Controller
 
       if ( $_FILES['poster']['type'] === 'image/jpeg') {
         move_uploaded_file( $source, $dest);
+        redirect('/backoffice/addsuccess');
+      }else{
+        $error = true;
+        $errorOrigin = 'tile';
       }
+    }else{
+      $error = true;
+      $errorOrigin = 'all';
+      // ON POURRAIT RENVOYER ERRORORIGIN
+      // EN PARAM EN CALLANT LA FONCTION BOINDEXADDFAIL PLUTOT QUE PASSER PAR LES ROUTES
     }
+
+    if($error){
+      redirect('/backoffice/addfail');
+    }
+  }
+
+  public function testIfValidImg(){
+    return ($_FILES['poster']['type'] === 'image/jpeg');
+  }
+
+  public function saveImg(){
+
+    $title = $_POST['title'];
+    $excerpt = $_POST['excerpt'];
+    $source = $_FILES['poster']['tmp_name'];
+    $original = $_FILES['poster']['name'];
+    $original_filename = pathinfo($original, PATHINFO_FILENAME);
+    $original_ext = pathinfo($original, PATHINFO_EXTENSION);
+
+    $filename = $original_filename . '_' . time() . '.' . $original_ext;
+    $dest = ASSETS_PATH . 'img'.DS. $filename;
+    move_uploaded_file( $source, $dest);
+
   }
 
 }

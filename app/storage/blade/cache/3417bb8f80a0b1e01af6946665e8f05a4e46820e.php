@@ -35,9 +35,11 @@ Voir tuiles
 </div>
 
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add">
-Ajouter
-</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add">Ajouter</button>
+
+<?php echo $__env->yieldContent('warningmessage'); ?>
+
+
 <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <form action="<?php echo e(url('/prepTile')); ?>" method="POST" enctype="multipart/form-data">
