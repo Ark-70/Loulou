@@ -36,7 +36,6 @@ Accueil
 <div class="grille">
     <div class="container">
       <div class="row">
-
         <div class="tuile col-12" >
           <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="0"><img  src="assets/img/Cat.jpg" class="img-fluid img-responsive"></a>
         </div>
@@ -68,12 +67,6 @@ Accueil
       </div>
     </div>
 </div>
-
-
-
-
-
-
 
 
 
@@ -165,9 +158,6 @@ Accueil
               <!--end modal-footer--></div>
               <!--end modal-content--></div>
               <!--end modal-dialoge--></div>
-
-
-
 
 
 <?php $__env->stopSection(); ?>

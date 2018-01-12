@@ -37,35 +37,6 @@ Accueil
 <div class="grille">
     <div class="container">
       <div class="row">
-<<<<<<< Updated upstream
-        <div class="tuile col-4">
-          <a href="#" data-toggle="modal" data-target="#myModal"><img src="http://www.elementsofstyleblog.com/wp-content/uploads/2010/02/600x400-princeville-sunset.jpg" class="img-fluid"></a>>
-        </div>
-      <div class="tuile col-4" >
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
-        </div>
-        <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
-        </div>
-        <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
-        </div>
-        <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
-        </div>
-        <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
-        </div>
-        <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
-        </div>
-        <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
-        </div>
-        <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
-=======
-
         <div class="tuile col-12" >
           <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="0"><img  src="assets/img/Cat.jpg" class="img-fluid img-responsive"></a>
         </div>
@@ -93,21 +64,12 @@ Accueil
         </div>
         <div class="tuile col-4">
           <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="8"><img src="assets/img/ZlatailleOtage.jpg" class="img-fluid img-responsive"></a>
->>>>>>> Stashed changes
         </div>
       </div>
     </div>
 </div>
 
 
-
-
-
-
-
-
-<<<<<<< Updated upstream
-=======
 
 <!--begin modal window-->
 <div class="modal fade " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="myModal">
@@ -199,9 +161,5 @@ Accueil
               <!--end modal-dialoge--></div>
 
 
-
-
-
->>>>>>> Stashed changes
 @endsection
 
