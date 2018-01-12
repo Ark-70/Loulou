@@ -27,9 +27,39 @@ Voir tuiles
                     <th>ID</th>
                     <th>Titre</th>
                     <th>Description</th>
+                    <th>Layout</th>
+                    <th>Supprimer</th>
                   </tr>
                 </thead>
                 <tbody>
+                <?php
+
+                // Oui je fais une boucle simple avec un index CAR :
+                // Un problème inexplicable est survenu : lorsque je récupérais un tuple de la bdd avec Tile->getAll(), il me renvoit un tableau avec tous les champs en doublons : un exemplaire avec la clef (d'un tableau associatif) et l'autre avec un numéro d'index
+                //(je précise qu'il n'y a rien d'anormal dans ma bdd sur PhpMyAdmin pourtant. C'est à n'y rien comprendre)
+                //Si vous avez une idée je suis preneur !
+
+                // dump($tiles)
+
+                foreach ($tiles as $tile) {
+                  ?>
+                  <tr>
+
+                    <?php
+                    for ($i=0; $i < 4; $i++) {
+                      ?>
+                      <td><?php echo $tile[$i] ?></td>
+                      <?php
+                    }
+                     ?>
+                      <td></td>
+
+                  </tr>
+
+                  <?php
+                }
+                 ?>
+
                 </tbody>
               </table>
             </div>
@@ -82,7 +112,7 @@ Voir tuiles
               <option value="2">Moitié/moitié : image et texte (image à gauche)</option>
               <option value="3">Moitié/moitié : texte et image (texte à gauche)</option>
               <option value="4">Deux tiers/un tier : image et texte (image à gauche)</option>
-              <option value="5">Deux tiers/un tier : texte et image (texte à gauche)</option>
+              <option value="5">Un tier/deux tiers : texte et image (texte à gauche)</option>
             </select>
           </div>
 

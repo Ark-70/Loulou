@@ -94,8 +94,7 @@ class Base {
    * @param  integer  $id identifiant
    * @return void
    */
-  public function getAll()
-  {
+  public function getAll(){
     $sql = "SELECT * FROM {$this->tableName}";
     return  $this->pdo->all( $sql );
 

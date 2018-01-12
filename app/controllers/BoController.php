@@ -58,9 +58,11 @@ class BoController extends Controller{
         break;
     }
 
+    $tilesList = Tile::getInstance()->getAll();
     echo $blade->render(
       'backoffice/boaddmsg',
       [
+        'tiles'=>$tilesList,
         'msg' => $msg
       ]
     );
