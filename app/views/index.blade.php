@@ -14,7 +14,7 @@ Accueil
     <div class="collapse" id="navbarToggleExternalContent">
       <div class="p-4">
         @foreach($tiles as $tile)
-        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="{{$tile['id']-1}}"><li>{{$tile['title']}}</li></a>
+        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="{{$tile['id']}}"><li>{{$tile['title']}}</li></a>
         @endforeach
       </div>
     </div>
@@ -33,7 +33,7 @@ Accueil
       <div class="row">
         @foreach($tiles as $tile)
         <div class="tuile col-4">
-          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="{{$tile['id']-1}}"><img src="assets/img/{{$tile['image']}}" class="img-fluid img-responsive"></a>
+          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="{{$tile['id']}}"><img src="assets/img/{{$tile['image']}}" class="img-fluid img-responsive"></a>
         </div>
         @endforeach
       </div>

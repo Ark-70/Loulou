@@ -3,6 +3,7 @@ Accueil
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 <h1> What a Tuile ! </h1>
+<h2>Toute ressemblance avec des personnes existantes ou ayant existées serait purement fortuite</h2>
 
 
 <!-- Menu Burger -->
@@ -11,10 +12,9 @@ Accueil
   <div class="pos-f-t">
     <div class="collapse" id="navbarToggleExternalContent">
       <div class="p-4">
-        <a href="#"><li> Menu 1 </li></a>
-        <a href="#"><li> Menu 2 </li></a>
-        <a href="#"><li> Menu 3 </li></a>
-        <a href="#"><li> Menu 4 </li></a>
+        <?php $__currentLoopData = $tiles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tile): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="<?php echo e($tile['id']); ?>"><li><?php echo e($tile['title']); ?></li></a>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       </div>
     </div>
     <nav class="navbar fixed-left navbar-dark">
@@ -30,44 +30,14 @@ Accueil
 <div class="grille">
     <div class="container">
       <div class="row">
-
-        <div class="tuile col-12" >
-          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="0"><img  src="assets/img/Cat.jpg" class="img-fluid img-responsive"></a>
-        </div>
-
+        <?php $__currentLoopData = $tiles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tile): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="tuile col-4">
-          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="1"><img src="assets/img/ZlataillePain.jpg" class="img-fluid img-responsive"></a>
+          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="<?php echo e($tile['id']); ?>"><img src="assets/img/<?php echo e($tile['image']); ?>" class="img-fluid img-responsive"></a>
         </div>
-        <div class="tuile col-4">
-          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="2"><img src="assets/img/ZlataillePlage.jpg" class="img-fluid img-responsive"></a>
-        </div>
-        <div class="tuile col-4">
-          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="3"><img src="assets/img/ZlataillePlonge.jpg" class="img-fluid img-responsive"></a>
-        </div>
-        <div class="tuile col-4">
-          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="4"><img src="assets/img/ZlatailleCine.jpg" class="img-fluid img-responsive"></a>
-        </div>
-        <div class="tuile col-4">
-          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="5"><img src="assets/img/ZlataillePolice.jpg" class="img-fluid img-responsive"></a>
-        </div>
-        <div class="tuile col-4">
-          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="6"><img src="assets/img/ZlatailleRPG.jpg" class="img-fluid img-responsive"></a>
-        </div>
-        <div class="tuile col-4">
-          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="7"><img src="assets/img/ZlatailleCarnaval.jpg" class="img-fluid img-responsive"></a>
-        </div>
-        <div class="tuile col-4">
-          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="8"><img src="assets/img/ZlatailleOtage.jpg" class="img-fluid img-responsive"></a>
-        </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       </div>
     </div>
 </div>
-
-
-
-
-
-
 
 
 
@@ -85,69 +55,19 @@ Accueil
           <div class="carousel-inner">
 
 
+            <?php $__currentLoopData = $tiles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tile): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <?php if($tile['id']==0+1): ?>
+            <div class="carousel-item <?php echo e($tile['layout']); ?> active">
+              <?php else: ?>
+            <div class="carousel-item <?php echo e($tile['layout']); ?>">
+              <?php endif; ?>
 
-            <div class="carousel-item active">
-              <img src="assets/img/Cat.jpg" alt="item0">
-              <div class="carousel-caption">
-              </div>
+              <img src="assets/img/<?php echo e($tile['image']); ?>" alt="item<?php echo e($tile['id']-1); ?>">
+              <p><?php echo e($tile['description']); ?></p>
+              <div class="carousel-caption"></div>
             </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-            <div class="carousel-item">
-              <img id="halfLeft" src="assets/img/ZlataillePain.jpg" alt="item1">
-              <div id="halfTexte"><p>Zlataille va chercher son pain</p></div>
-              <div class="carousel-caption">
-                <p>  </p>
-              </div>
-            </div>
-
-            <div class="carousel-item">
-              <img id="halfRight" src="assets/img/ZlataillePlage.jpg" alt="item2">
-              <div id="halfTexte"><p>Zlataille va à la plage</p></div>
-            </div>
-
-            <div class="carousel-item">
-              <img id="tierLeft" src="assets/img/ZlataillePlonge.jpg" alt="item3">
-              <div id="tierTexte" ><p> Zlataille va faire de la plongée </p></div>
-              <div class="carousel-caption">
-
-              </div>
-            </div>
-
-            <div class="carousel-item">
-              <img id="tierRight" src="assets/img/ZlatailleCine.jpg" alt="item4">
-              <div id="tierTexte" ><p> Zlataille va regarder un bon film au cinéma </p></div>
-              <div class="carousel-caption">
-
-              </div>
-            </div>
-
-            <div class="carousel-item">
-              <img src="assets/img/ZlataillePolice.jpg" alt="item5">
-              <div class="carousel-caption">
-                <p> Zlataille joue aux policiers avec son fils </p>
-              </div>
-            </div>
-
-            <div class="carousel-item">
-              <img src="assets/img/ZlatailleRPG.jpg" alt="item6">
-              <div class="carousel-caption">
-                <p> Zlataille se rend au Comic Con avec son cosplay </p>
-              </div>
-            </div>
-
-            <div class="carousel-item">
-              <img src="assets/img/ZlatailleCarnaval.jpg" alt="item7">
-              <div class="carousel-caption">
-                <p> Zlataille participe au carnaval de Rio </p>
-              </div>
-            </div>
-
-            <div class="carousel-item">
-              <img src="assets/img/ZlatailleOtage.jpg" alt="item8">
-              <div class="carousel-caption">
-                <p> Zlataille est pris en otage alors qu'il était au cirque</p>
-              </div>
-            </div>
 
 
             </div>
@@ -159,9 +79,6 @@ Accueil
               <!--end modal-footer--></div>
               <!--end modal-content--></div>
               <!--end modal-dialoge--></div>
-
-
-
 
 
 <?php $__env->stopSection(); ?>

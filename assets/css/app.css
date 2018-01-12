@@ -20,59 +20,6 @@ h1,label{
   text-align: center;
 }
 
-.wrapper
-{
-  position:absolute;
-  left:0px;
-  top:0px;
-}
-
-#admin
-{
-  position:absolute;
-  right:0px;
-  top:0px;
-}
-
-.grille {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  background-color: #696969;
-  z-index:0;
-}
-
-.tuile
-{
-  padding:10px;
-}
-
-.zoom
-{
-  z-index:2;
-  background-color:red;
-}
-
-html {
-  font-size: 20px
-}
-
-/* debug */
-.debug-trace { background-color: #B4242F; color: gray;padding: 0.5em;margin-bottom: 5px}
-.debug-trace pre {background-color: white; color:black}
-.debug-trace-line-info {font-style: italic;color: #EB8B93;margin: 0;font-size: 0.8em}
-
-.container-wrapper {width: 80%;margin: 20px auto}
-
-
-
-body {
-  background-color:#2b2b2b;
-}
-h1,label{
-  color:white !important;
-  text-align: center;
-}
-
 h2
 {
   text-align:center;
