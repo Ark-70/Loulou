@@ -85,67 +85,53 @@ Accueil
 
 
 
-            <div class="carousel-item active">
-              <img class="full" src="assets/img/Cat.jpg" alt="item0">
-              <div class="carousel-caption">
-              </div>
+            <div class="carousel-item full active">
+              <img src="assets/img/Cat.jpg" alt="item0">
+              <div class="carousel-caption"><p></p></div>
             </div>
 
-            <div class="carousel-item">
-              <img class="half order-2" src="assets/img/ZlataillePain.jpg" alt="item1">
-              <div class="halfTexte order-1"><p>Zlataille va chercher son pain</p></div>
-              <div class="carousel-caption">
-                <p>  </p>
-              </div>
+            <div class="carousel-item half txtfirst">
+              <img src="assets/img/ZlataillePain.jpg" alt="item1">
+              <p>Zlataille va chercher son pain</p>
+              <div class="carousel-caption"></div>
             </div>
 
-            <div  class="carousel-item">
-              <img class="half order-1" src="assets/img/ZlataillePlage.jpg" alt="item2">
-              <div class="halfTexte"><p>Zlataille va à la plage</p></div>
+            <div  class="carousel-item half">
+              <img src="assets/img/ZlataillePlage.jpg" alt="item2">
+              <p>Zlataille va à la plage</p>
+              <div class="carousel-caption"></div>
             </div>
 
-            <div  class="carousel-item">
-              <img class="tier order-1" src="assets/img/ZlataillePlonge.jpg" alt="item3">
-              <div class="tierTexte" ><p> Zlataille va faire de la plongée </p></div>
-              <div class="carousel-caption">
-
-              </div>
+            <div  class="carousel-item tier">
+              <img src="assets/img/ZlataillePlonge.jpg" alt="item3">
+              <p> Zlataille va faire de la plongée </p>
+              <div class="carousel-caption"></div>
             </div>
 
-            <div  class="carousel-item">
-              <img class="tier order-2" src="assets/img/ZlatailleCine.jpg" alt="item4">
-              <div class="tierTexte" ><p> Zlataille va regarder un bon film au cinéma </p></div>
-              <div class="carousel-caption">
-
-              </div>
+            <div class="carousel-item tier txtfirst">
+              <img src="assets/img/ZlatailleCine.jpg" alt="item4">
+              <p> Zlataille va regarder un bon film au cinéma </p>
+              <div class="carousel-caption"></div>
             </div>
 
-            <div  class="carousel-item">
-              <img class="full" src="assets/img/ZlataillePolice.jpg" alt="item5">
-              <div class="carousel-caption">
-                <p> Zlataille joue aux policiers avec son fils </p>
-              </div>
+            <div class="carousel-item full">
+              <img src="assets/img/ZlataillePolice.jpg" alt="item5">
+              <div class="carousel-caption"><p>Zlataille joue aux policiers avec son fils </p></div>
             </div>
 
-            <div  class="carousel-item">
-              <img class="full" src="assets/img/ZlatailleRPG.jpg" alt="item6">
-              <div class="carousel-caption">
-                <p> Zlataille se rend au Comic Con avec son cosplay </p>
-              </div>
+            <div  class="carousel-item full">
+              <img src="assets/img/ZlatailleRPG.jpg" alt="item6">
+              <div class="carousel-caption"><p>Zlataille se rend au Comic Con avec son cosplay </p></div>
             </div>
 
-            <div  class="carousel-item">
+            <div  class="carousel-item full">
               <img class="full" src="assets/img/ZlatailleCarnaval.jpg" alt="item7">
-              <div class="carousel-caption">
-                <p> Zlataille participe au carnaval de Rio </p>
-              </div>
+              <div class="carousel-caption"><p>Zlataille participe au carnaval de Rio </p></div>
             </div>
 
-            <div  class="carousel-item">
+            <div  class="carousel-item full">
               <img class="full" src="assets/img/ZlatailleOtage.jpg" alt="item8">
-              <div class="carousel-caption">
-                <p> Zlataille est pris en otage alors qu'il était au cirque</p>
-              </div>
+              <div class="carousel-caption"><p>Zlataille est pris en otage alors qu'il était au cirque</p></div>
             </div>
 
 

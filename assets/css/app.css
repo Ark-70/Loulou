@@ -106,36 +106,29 @@ h1,label{
   background-color:red;
 }
 
-.full
-{
+.carousel-item.full>img{
   max-width:100%;
   max-height:100%;
 }
 
-.half
-{
-    max-width:49%;
-}
-
-
-.halfTexte
-{
+.carousel-item.half>img{
+  max-width:49%;
+}.carousel-item.half>p{
+  color:black;
+  text-align: center;
   width:49%;
-  color:black;
-  text-align: center;
-
 }
 
-.tier
-{
-    max-width:57%;
-}
-
-.tierTexte
-{
+.carousel-item.tier>img{
+  max-width:56%;
+}.carousel-item.tier>p{
   color:black;
   text-align: center;
-  width:47%;
+  width:43%;
+}
+
+.carousel-item.txtfirst>img{
+  order:9979;
 }
 
 .carousel-item-next, .carousel-item-prev, .carousel-item.active
