@@ -11,10 +11,16 @@ Accueil
   <div class="pos-f-t">
     <div class="collapse" id="navbarToggleExternalContent">
       <div class="p-4">
-        <a href="#"><li> Menu 1 </li></a>
-        <a href="#"><li> Menu 2 </li></a>
-        <a href="#"><li> Menu 3 </li></a>
-        <a href="#"><li> Menu 4 </li></a>
+        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="0"><li> GrimpyCat </li></a>
+        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="1"><li> ZlataillePain </li></a>
+        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="2"><li> ZlataillePlage </li></a>
+        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="3"><li> ZlataillePlongée </li></a>
+        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="4"><li> ZlatailleCiné </li></a>
+        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="5"><li> ZlataillePolice </li></a>
+        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="6"><li> ZlatailleRPG </li></a>
+        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="7"><li> ZlatailleCarnaval </li></a>
+        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="8"><li> ZlatailleOtage </li></a>
+
       </div>
     </div>
     <nav class="navbar fixed-left navbar-dark">
@@ -30,32 +36,34 @@ Accueil
 <div class="grille">
     <div class="container">
       <div class="row">
-        <div class="tuile col-4">
-          <a href="#" data-toggle="modal" data-target="#myModal"><img src="http://www.elementsofstyleblog.com/wp-content/uploads/2010/02/600x400-princeville-sunset.jpg" class="img-fluid"></a>>
+
+        <div class="tuile col-12" >
+          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="0"><img  src="assets/img/Cat.jpg" class="img-fluid img-responsive"></a>
         </div>
-      <div class="tuile col-4" >
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
-        </div>
+
         <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
-        </div>
-        <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
+          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="1"><img src="assets/img/ZlataillePain.jpg" class="img-fluid img-responsive"></a>
         </div>
         <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
+          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="2"><img src="assets/img/ZlataillePlage.jpg" class="img-fluid img-responsive"></a>
         </div>
         <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
+          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="3"><img src="assets/img/ZlataillePlonge.jpg" class="img-fluid img-responsive"></a>
         </div>
         <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
+          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="4"><img src="assets/img/ZlatailleCine.jpg" class="img-fluid img-responsive"></a>
         </div>
         <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
+          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="5"><img src="assets/img/ZlataillePolice.jpg" class="img-fluid img-responsive"></a>
         </div>
         <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
+          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="6"><img src="assets/img/ZlatailleRPG.jpg" class="img-fluid img-responsive"></a>
+        </div>
+        <div class="tuile col-4">
+          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="7"><img src="assets/img/ZlatailleCarnaval.jpg" class="img-fluid img-responsive"></a>
+        </div>
+        <div class="tuile col-4">
+          <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="8"><img src="assets/img/ZlatailleOtage.jpg" class="img-fluid img-responsive"></a>
         </div>
       </div>
     </div>
@@ -64,53 +72,101 @@ Accueil
 
 
 
-<div class="container text-center">
 
-<h1> Click Me </h1>
-<!-- Large modal -->
-<button class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
 
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+
+
+
+<!--begin modal window-->
+<div class="modal fade " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="myModal">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-
-
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-     <img class="img-responsive" src="http://placehold.it/1200x600/555/000&text=One" alt="...">
-      <div class="carousel-caption">
-        One Image
+      <div class="modal-header">
+        <div class="pull-left">Les vacances de Zlataille</div>
+        <button type="button" class="close" data-dismiss="modal" title="Close"></button>
       </div>
-    </div>
-    <div class="item">
-      <img class="img-responsive" src="http://placehold.it/1200x600/fffccc/000&text=Two" alt="...">
-      <div class="carousel-caption">
-        Another Image
-      </div>
-    </div>
-     <div class="item">
-      <img class="img-responsive" src="http://placehold.it/1200x600/fcf00c/000&text=Three" alt="...">
-      <div class="carousel-caption">
-        Another Image
-      </div>
-    </div>
-  </div>
+      <div class="modal-body">
+        <!--begin carousel-->
+        <div id="myGallery" class="carousel slide" data-interval="false">
+          <div class="carousel-inner">
 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
-</div>
-    </div>
-  </div>
-</div>
-</div>
+
+
+            <div class="carousel-item active">
+              <img class="full" src="assets/img/Cat.jpg" alt="item0">
+              <div class="carousel-caption">
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <img class="half order-2" src="assets/img/ZlataillePain.jpg" alt="item1">
+              <div class="halfTexte order-1"><p>Zlataille va chercher son pain</p></div>
+              <div class="carousel-caption">
+                <p>  </p>
+              </div>
+            </div>
+
+            <div  class="carousel-item">
+              <img class="half order-1" src="assets/img/ZlataillePlage.jpg" alt="item2">
+              <div class="halfTexte"><p>Zlataille va à la plage</p></div>
+            </div>
+
+            <div  class="carousel-item">
+              <img class="tier order-1" src="assets/img/ZlataillePlonge.jpg" alt="item3">
+              <div class="tierTexte" ><p> Zlataille va faire de la plongée </p></div>
+              <div class="carousel-caption">
+
+              </div>
+            </div>
+
+            <div  class="carousel-item">
+              <img class="tier order-2" src="assets/img/ZlatailleCine.jpg" alt="item4">
+              <div class="tierTexte" ><p> Zlataille va regarder un bon film au cinéma </p></div>
+              <div class="carousel-caption">
+
+              </div>
+            </div>
+
+            <div  class="carousel-item">
+              <img class="full" src="assets/img/ZlataillePolice.jpg" alt="item5">
+              <div class="carousel-caption">
+                <p> Zlataille joue aux policiers avec son fils </p>
+              </div>
+            </div>
+
+            <div  class="carousel-item">
+              <img class="full" src="assets/img/ZlatailleRPG.jpg" alt="item6">
+              <div class="carousel-caption">
+                <p> Zlataille se rend au Comic Con avec son cosplay </p>
+              </div>
+            </div>
+
+            <div  class="carousel-item">
+              <img class="full" src="assets/img/ZlatailleCarnaval.jpg" alt="item7">
+              <div class="carousel-caption">
+                <p> Zlataille participe au carnaval de Rio </p>
+              </div>
+            </div>
+
+            <div  class="carousel-item">
+              <img class="full" src="assets/img/ZlatailleOtage.jpg" alt="item8">
+              <div class="carousel-caption">
+                <p> Zlataille est pris en otage alors qu'il était au cirque</p>
+              </div>
+            </div>
+
+
+            </div>
+            <!--end carousel-inner--></div>
+            <!--Begin Previous and Next buttons-->
+            <a class="left carousel-control" href="#myGallery" role="button" data-slide="prev"> <i class="fa fa-arrow-left" aria-hidden="true"></i></a> <a class="right carousel-control" href="#myGallery" role="button" data-slide="next"> <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+            <!--end carousel--></div>
+            <!--end modal-body--></div>
+              <!--end modal-footer--></div>
+              <!--end modal-content--></div>
+              <!--end modal-dialoge--></div>
+
+
 
 
 

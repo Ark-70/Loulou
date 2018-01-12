@@ -1,8 +1,7 @@
-@extends( 'layout' )
-@section('title')
+<?php $__env->startSection('title'); ?>
 Accueil
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 <h1> What a Tuile ! </h1>
 
 
@@ -12,16 +11,10 @@ Accueil
   <div class="pos-f-t">
     <div class="collapse" id="navbarToggleExternalContent">
       <div class="p-4">
-        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="0"><li> GrimpyCat </li></a>
-        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="1"><li> ZlataillePain </li></a>
-        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="2"><li> ZlataillePlage </li></a>
-        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="3"><li> ZlataillePlongée </li></a>
-        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="4"><li> ZlatailleCiné </li></a>
-        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="5"><li> ZlataillePolice </li></a>
-        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="6"><li> ZlatailleRPG </li></a>
-        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="7"><li> ZlatailleCarnaval </li></a>
-        <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="8"><li> ZlatailleOtage </li></a>
-
+        <a href="#"><li> Menu 1 </li></a>
+        <a href="#"><li> Menu 2 </li></a>
+        <a href="#"><li> Menu 3 </li></a>
+        <a href="#"><li> Menu 4 </li></a>
       </div>
     </div>
     <nav class="navbar fixed-left navbar-dark">
@@ -37,34 +30,6 @@ Accueil
 <div class="grille">
     <div class="container">
       <div class="row">
-<<<<<<< Updated upstream
-        <div class="tuile col-4">
-          <a href="#" data-toggle="modal" data-target="#myModal"><img src="http://www.elementsofstyleblog.com/wp-content/uploads/2010/02/600x400-princeville-sunset.jpg" class="img-fluid"></a>>
-        </div>
-      <div class="tuile col-4" >
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
-        </div>
-        <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
-        </div>
-        <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
-        </div>
-        <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
-        </div>
-        <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
-        </div>
-        <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
-        </div>
-        <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
-        </div>
-        <div class="tuile col-4">
-          <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid">
-=======
 
         <div class="tuile col-12" >
           <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="0"><img  src="assets/img/Cat.jpg" class="img-fluid img-responsive"></a>
@@ -93,7 +58,6 @@ Accueil
         </div>
         <div class="tuile col-4">
           <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="8"><img src="assets/img/ZlatailleOtage.jpg" class="img-fluid img-responsive"></a>
->>>>>>> Stashed changes
         </div>
       </div>
     </div>
@@ -106,8 +70,6 @@ Accueil
 
 
 
-<<<<<<< Updated upstream
-=======
 
 <!--begin modal window-->
 <div class="modal fade " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="myModal">
@@ -125,63 +87,63 @@ Accueil
 
 
             <div class="carousel-item active">
-              <img class="full" src="assets/img/Cat.jpg" alt="item0">
+              <img src="assets/img/Cat.jpg" alt="item0">
               <div class="carousel-caption">
               </div>
             </div>
 
             <div class="carousel-item">
-              <img class="half order-2" src="assets/img/ZlataillePain.jpg" alt="item1">
-              <div class="halfTexte order-1"><p>Zlataille va chercher son pain</p></div>
+              <img id="halfLeft" src="assets/img/ZlataillePain.jpg" alt="item1">
+              <div id="halfTexte"><p>Zlataille va chercher son pain</p></div>
               <div class="carousel-caption">
                 <p>  </p>
               </div>
             </div>
 
-            <div  class="carousel-item">
-              <img class="half order-1" src="assets/img/ZlataillePlage.jpg" alt="item2">
-              <div class="halfTexte"><p>Zlataille va à la plage</p></div>
+            <div class="carousel-item">
+              <img id="halfRight" src="assets/img/ZlataillePlage.jpg" alt="item2">
+              <div id="halfTexte"><p>Zlataille va à la plage</p></div>
             </div>
 
-            <div  class="carousel-item">
-              <img class="tier order-1" src="assets/img/ZlataillePlonge.jpg" alt="item3">
-              <div class="tierTexte" ><p> Zlataille va faire de la plongée </p></div>
+            <div class="carousel-item">
+              <img id="tierLeft" src="assets/img/ZlataillePlonge.jpg" alt="item3">
+              <div id="tierTexte" ><p> Zlataille va faire de la plongée </p></div>
               <div class="carousel-caption">
 
               </div>
             </div>
 
-            <div  class="carousel-item">
-              <img class="tier order-2" src="assets/img/ZlatailleCine.jpg" alt="item4">
-              <div class="tierTexte" ><p> Zlataille va regarder un bon film au cinéma </p></div>
+            <div class="carousel-item">
+              <img id="tierRight" src="assets/img/ZlatailleCine.jpg" alt="item4">
+              <div id="tierTexte" ><p> Zlataille va regarder un bon film au cinéma </p></div>
               <div class="carousel-caption">
 
               </div>
             </div>
 
-            <div  class="carousel-item">
-              <img class="full" src="assets/img/ZlataillePolice.jpg" alt="item5">
+            <div class="carousel-item">
+              <img src="assets/img/ZlataillePolice.jpg" alt="item5">
               <div class="carousel-caption">
                 <p> Zlataille joue aux policiers avec son fils </p>
               </div>
             </div>
 
-            <div  class="carousel-item">
-              <img class="full" src="assets/img/ZlatailleRPG.jpg" alt="item6">
+            <div class="carousel-item">
+              <img src="assets/img/ZlatailleRPG.jpg" alt="item6">
               <div class="carousel-caption">
                 <p> Zlataille se rend au Comic Con avec son cosplay </p>
               </div>
             </div>
 
-            <div  class="carousel-item">
-              <img class="full" src="assets/img/ZlatailleCarnaval.jpg" alt="item7">
+            <div class="carousel-item">
+              <img src="assets/img/ZlatailleCarnaval.jpg" alt="item7">
               <div class="carousel-caption">
                 <p> Zlataille participe au carnaval de Rio </p>
               </div>
             </div>
 
-            <div  class="carousel-item">
-              <img class="full" src="assets/img/ZlatailleOtage.jpg" alt="item8">
+            <div class="carousel-item">
+              <img src="assets/img/ZlatailleOtage.jpg" alt="item8">
               <div class="carousel-caption">
                 <p> Zlataille est pris en otage alors qu'il était au cirque</p>
               </div>
@@ -202,6 +164,7 @@ Accueil
 
 
 
->>>>>>> Stashed changes
-@endsection
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make( 'layout' , array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
