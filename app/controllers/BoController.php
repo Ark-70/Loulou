@@ -105,8 +105,7 @@ class BoController extends Controller
   public function prepTileSave(){
     global $blade;
 // TESTER D'APPELER CETTE FONCTION DIRECTEMENT DANS LA VUE ET ENLEVER LE ACTION DU FORM ==== TESTIMG() PUIS SAVEIMG()
-// SINON FAIRE EN SORTE QUE LA VUE RENVOIE VERS PREPTILESAVE, QUI REDIRECT VERS LE BOINDEX MAIS AVEC DES DONNÉES À ENVOYER À BLADE
-
+// SINON FAIRE EN SORTE QUE LA VUE RENVOIE VERS PREPTILESAVE(), QUI REDIRECT VERS LE BOINDEX MAIS AVEC DES DONNÉES À ENVOYER À BLADE
 
     $error = false;
 
@@ -116,6 +115,7 @@ class BoController extends Controller
       // produire les 3 variables $name, $email, $message
       $title = $_POST['title'];
       $excerpt = $_POST['excerpt'];
+      $layout = $_POST['layout'];
 
       $source = $_FILES['poster']['tmp_name'];
       $original = $_FILES['poster']['name'];
@@ -127,6 +127,9 @@ class BoController extends Controller
 
       if ( $_FILES['poster']['type'] === 'image/jpeg') {
         move_uploaded_file( $source, $dest);
+        $datas = ['title'=>$title,'description'=>$excerpt, 'image'=>$filename, 'layout'=>$layout];
+        // Merci les spaghettis n°5
+        Tile::getInstance()->add($datas);
         redirect('/backoffice/addsuccess');
       }else{
         $error = true;

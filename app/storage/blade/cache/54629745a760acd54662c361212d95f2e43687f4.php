@@ -3,44 +3,51 @@ Accueil
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 <h1> Back-office </h1>
+
+<?php echo $__env->yieldContent('warningmessage'); ?>
+
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tuile">
 Voir tuiles
 </button>
-<div class="modal fade" id="tuile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Liste tuiles</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        </button>
+
+<!-- ***CACHÉ DANS LE BOUTON VOIR TUILES*** -->
+      <div class="modal fade" id="tuile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Liste tuiles</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              </button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Titre</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Titre</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-    </div>
-  </div>
-</div>
+<!-- *** *** -->
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add">Ajouter</button>
 
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add">
-Ajouter
-</button>
+
+<!-- ***CACHÉ DANS LE BOUTON AJOUTER *** -->
 <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form method="post" enctype="multipart/form-data">
+    <form action="<?php echo e(url('/prepTile')); ?>" method="POST" enctype="multipart/form-data">
       <div class="modal-content">
 
         <div class="modal-header">
@@ -60,32 +67,27 @@ Ajouter
             <textarea class="form-control" id="excerpt" name="excerpt" placeholder="Écrire description"></textarea>
           </div>
 
-          <div class="input-group">
-            <input type="file" name="poster" class="form-control" aria-describedby="basic-addon2">
+          <div class="form-group">
+            <label for="poster">Image de la tuile</label>
+            <div class="input-group">
+              <input type="file" id="poster" name="poster" class="form-control" aria-describedby="basic-addon2">
+            </div>
           </div>
 
-<?php
-// TOUT CA EST CENSÉ ÊTRE DANS UNE ROUTE, MISE DANS LE ACTION DU FORM
+          <div class="form-group">
+            <label for="layout">Gabarit de tuile</label>
+            <select class="form-control" id="layout" name="layout">
+              <option value="1">Image dans son ensemble</option>
+              <option value="2">Moitié/moitié : image et texte (image à gauche)</option>
+              <option value="3">Moitié/moitié : texte et image (texte à gauche)</option>
+              <option value="4">Deux tiers/un tier : image et texte (image à gauche)</option>
+              <option value="5">Deux tiers/un tier : texte et image (texte à gauche)</option>
+            </select>
 
-if (!empty($_POST)) {
-  // afficher - en debug- les informations sur le fichier uploadé
-  //d($_FILES);
-  // produire les 3 variables $name, $email, $message
-  extract($_POST);
-  $source = $_FILES['poster']['tmp_name'];
-  $original = $_FILES['poster']['name'];
-  $original_filename = pathinfo($original, PATHINFO_FILENAME);
-  $original_ext = pathinfo($original, PATHINFO_EXTENSION);
+          </div>
 
-  $filename = $original_filename . '_' . time() . '.' . $original_ext;
-  $dest = url( '/assets/img/'.$filename );
-  //d($dest, '$dest');
-  // vérifier le type
-  // if ( $_FILES['poster']['type'] === 'image/jpeg') {
-    move_uploaded_file( $source, $dest);
-  // }
-}
-?>
+<!-- *** *** -->
+
 
 <!--
             <div class="input-group">
@@ -107,7 +109,7 @@ marche pas
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-        <button type="submit" class="btn btn-primary  " data-dismiss="modal">Ajouter</button>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
       </div>
     </form>
   </div>

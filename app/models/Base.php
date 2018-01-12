@@ -41,7 +41,7 @@ class Base {
     foreach( array_keys( $datas ) as $k ) {
       $sql .= " {$k} ,";
     }
-    $sql = substr($sql, 0, strlen($sql)-1) . " ) VALUE (";
+    $sql = substr($sql, 0, strlen($sql)-1) . " ) VALUES (";
     foreach( array_keys( $datas ) as $k ) {
       $sql .= " :{$k} ,";
     }
