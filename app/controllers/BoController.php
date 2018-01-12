@@ -66,5 +66,31 @@ class BoController extends Controller
 
   }
 
+  public function PrepTileSave(){
+    global $blade;
+// TESTER D'APPELER CETTE FONCTION DIRECTEMENT DANS LA VUE ET ENVEVER LE ACTION DU FORM
+
+
+    if (!empty($_POST)) {
+      // afficher - en debug- les informations sur le fichier uploadé
+      //d($_FILES);
+      // produire les 3 variables $name, $email, $message
+      $title = $_POST['title'];
+      $excerpt = $_POST['excerpt'];
+
+      $source = $_FILES['poster']['tmp_name'];
+      $original = $_FILES['poster']['name'];
+      $original_filename = pathinfo($original, PATHINFO_FILENAME);
+      $original_ext = pathinfo($original, PATHINFO_EXTENSION);
+
+      $filename = $original_filename . '_' . time() . '.' . $original_ext;
+      $dest = ASSETS_PATH . 'img'.DS. $filename;
+
+      if ( $_FILES['poster']['type'] === 'image/jpeg') {
+        move_uploaded_file( $source, $dest);
+      }
+    }
+  }
+
 }
 

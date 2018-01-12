@@ -41,7 +41,7 @@ Ajouter
 </button>
 <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form method="post" enctype="multipart/form-data">
+    <form action="{{ url('/prepTile') }}" method="POST" enctype="multipart/form-data">
       <div class="modal-content">
 
         <div class="modal-header">
@@ -65,28 +65,7 @@ Ajouter
             <input type="file" name="poster" class="form-control" aria-describedby="basic-addon2">
           </div>
 
-<?php
-// TOUT CA EST CENSÉ ÊTRE DANS UNE ROUTE, MISE DANS LE ACTION DU FORM
 
-if (!empty($_POST)) {
-  // afficher - en debug- les informations sur le fichier uploadé
-  //d($_FILES);
-  // produire les 3 variables $name, $email, $message
-  extract($_POST);
-  $source = $_FILES['poster']['tmp_name'];
-  $original = $_FILES['poster']['name'];
-  $original_filename = pathinfo($original, PATHINFO_FILENAME);
-  $original_ext = pathinfo($original, PATHINFO_EXTENSION);
-
-  $filename = $original_filename . '_' . time() . '.' . $original_ext;
-  $dest = url( '/assets/img/'.$filename );
-  //d($dest, '$dest');
-  // vérifier le type
-  // if ( $_FILES['poster']['type'] === 'image/jpeg') {
-    move_uploaded_file( $source, $dest);
-  // }
-}
-?>
 
 <!--
             <div class="input-group">
@@ -108,7 +87,7 @@ marche pas
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-        <button type="submit" class="btn btn-primary  " data-dismiss="modal">Ajouter</button>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
       </div>
     </form>
   </div>

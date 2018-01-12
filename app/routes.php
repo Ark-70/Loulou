@@ -12,6 +12,7 @@ $route->addRoute( 'GET' , '/bo'                       , 'BoController@boIndex' )
 $route->addRoute( 'GET' , '/backoffice'               , 'BoController@boIndex' );
 $route->addRoute( 'GET' , '/login'                    , 'BoController@login' );
 $route->addRoute( 'POST', '/login'                    , 'BoController@checkLogin' );
+$route->addRoute( 'POST', '/prepTile'                    , 'BoController@PrepTileSave' );
 
 /*// AJAX
 $route->addRoute( ['GET','POST'], '/ajax/{controller}/{method}[/{id}]', 'AjaxController@index' );
