@@ -47,7 +47,7 @@ Voir tuiles
 <!-- ***CACHÉ DANS LE BOUTON AJOUTER *** -->
 <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form action="<?php echo e(url('/prepTile')); ?>" method="POST" enctype="multipart/form-data">
+    <form action="<?php echo e(url('/prepAdd')); ?>" method="POST" enctype="multipart/form-data">
       <div class="modal-content">
 
         <div class="modal-header">
@@ -83,26 +83,7 @@ Voir tuiles
               <option value="4">Deux tiers/un tier : image et texte (image à gauche)</option>
               <option value="5">Deux tiers/un tier : texte et image (texte à gauche)</option>
             </select>
-
           </div>
-
-<!-- *** *** -->
-
-
-<!--
-            <div class="input-group">
-                <label class="input-group-btn">
-                    <span class="btn btn-primary">
-                        Browse&hellip; <input type="file" style="display: none;" multiple>
-                    </span>
-                </label>
-                <input type="text" class="form-control" readonly>
-            </div>
-
-
-marche pas
--->
-
 
         </div>
       </div>

@@ -48,7 +48,7 @@ Voir tuiles
 <!-- ***CACHÉ DANS LE BOUTON AJOUTER *** -->
 <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form action="{{ url('/prepTile') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('/prepAdd') }}" method="POST" enctype="multipart/form-data">
       <div class="modal-content">
 
         <div class="modal-header">
