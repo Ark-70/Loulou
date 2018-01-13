@@ -21,7 +21,6 @@ h1,label{
 }
 
 
-
 h2
 {
   text-align:center;
@@ -35,13 +34,16 @@ h2
   position:absolute;
   left:0px;
   top:0px;
+}
 
-.modal-body h1, .modal-body label{
+.modal-body.botable h1, .modal-body label.botable{
   color:black;
 }
 
-
+.modal-dialog.botable{
+  max-width: 800px;
 }
+
 
 #admin
 {

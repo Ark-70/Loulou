@@ -10,7 +10,9 @@ $('.navbar-toggler').click(function() {
 
 });
 
+$('#btnedit').click(function(){
 
+});
 
 
 

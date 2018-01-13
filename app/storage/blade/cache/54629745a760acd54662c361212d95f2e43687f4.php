@@ -1,11 +1,10 @@
-@extends( 'layout' )
-@section('title')
+<?php $__env->startSection('title'); ?>
 Accueil
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 <h1> Back-office </h1>
 
-@yield('warningmessage')
+<?php echo $__env->yieldContent('warningmessage'); ?>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tuile">
 Voir tuiles
@@ -45,7 +44,7 @@ Voir tuiles
 
                 foreach ($tiles as $tile) {
                   ?>
-                  <form action="{{url('/tile/delete')}}" method="POST">
+                  <form action="<?php echo e(url('/tile/delete')); ?>" method="POST">
                     <tr>
                       <input type="text" name="id" value="<?php echo $tile['id'] ?>" hidden>
                       <td><?php echo $tile['id'] ?></td>
@@ -53,7 +52,7 @@ Voir tuiles
                       <td><?php echo $tile['description'] ?></td>
                       <td><?php echo $tile['layout'] ?></td>
                       <td><button class="btn btn-secondary" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
-                      <td><button id="btnedit" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#editer"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
+                      <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editer"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
                     </tr>
                   </form>
 
@@ -75,7 +74,7 @@ Voir tuiles
 <!-- ***CACHÉ DANS LE BOUTON ÉDITER *** -->
 <div class="modal fade" id="editer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form action="{{ url('/bo/tile/add') }}" method="POST" enctype="multipart/form-data">
+    <form action="<?php echo e(url('/bo/tile/add')); ?>" method="POST" enctype="multipart/form-data">
       <div class="modal-content">
 
         <div class="modal-header">
@@ -133,7 +132,7 @@ Voir tuiles
 <!-- ***CACHÉ DANS LE BOUTON AJOUTER *** -->
 <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form action="{{ url('/bo/tile/add') }}" method="POST" enctype="multipart/form-data">
+    <form action="<?php echo e(url('/bo/tile/add')); ?>" method="POST" enctype="multipart/form-data">
       <div class="modal-content">
 
         <div class="modal-header">
@@ -182,4 +181,6 @@ Voir tuiles
   </div>
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make( 'layout' , array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
