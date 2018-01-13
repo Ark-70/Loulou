@@ -1,3 +1,11 @@
+$(window).load(function() {
+    $('#editer').modal('show');
+    $('#editer').show();
+});
+
+$('.mycloseedit'){
+    $('#editer').hide();
+}
 $('.navbar-toggler').click(function() {
 
    $(".navbar-toggler>i").toggleClass("fa-times");
@@ -5,9 +13,6 @@ $('.navbar-toggler').click(function() {
 
 });
 
-$('#btnedit').click(function(){
-
-});
 
 
 

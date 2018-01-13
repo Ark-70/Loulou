@@ -20,6 +20,10 @@ h1,label{
   text-align: center;
 }
 
+.modal#editer{
+  display:block;
+}
+
 
 h2
 {

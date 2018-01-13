@@ -29,10 +29,12 @@ class BoController extends Controller{
     if(isset($_SESSION['login'])){
     // s'il est bien login, index sinon redirigé pour se login
 
+      $id = $_POST['id'];
+
       $tilesList = Tile::getInstance()->getAll();
-      $tileEdit = Tile::getInstance()->get($_POST);
+      $tileEdit = Tile::getInstance()->get($id);
       echo $blade->render(
-        'backoffice/boindex',
+        'backoffice/boindexedit',
         [
           'tiles'=>$tilesList,
           'tileEdit'=>$tileEdit
@@ -139,7 +141,7 @@ class BoController extends Controller{
 
     if(!empty($_POST)){
       foreach ($_POST as $key => $value) {
-        if(empty($_POST[$key])){
+        if(empty($value) && $key !== 'description'){
           $error = true;
           $errorProblem = $key;
         }
@@ -196,7 +198,7 @@ class BoController extends Controller{
 
     if(!empty($_POST)){
       foreach ($_POST as $key => $value) {
-        if(empty($_POST[$key])){
+        if(empty($value) && $key !== "description"){
           $error = true;
           $errorProblem = $key;
         }
@@ -206,9 +208,12 @@ class BoController extends Controller{
       $errorProblem = 'POST';
     }
 
-    if ($_FILES['poster']['type'] !== 'image/jpeg' && $_FILES['poster']['type'] !== 'image/png') {
-      $error = true;
-      $errorProblem = 'ext';
+    // On veut que si rien n'est rentré comme image, on garde l'ancienne image
+    if(!empty($_FILES['poster']['name'] && !empty($_FILES['poster']['type']))){
+      if ($_FILES['poster']['type'] !== 'image/jpeg' && $_FILES['poster']['type'] !== 'image/png') {
+        $error = true;
+        $errorProblem = 'ext';
+      }
     }
 
     if($error){
@@ -228,22 +233,30 @@ class BoController extends Controller{
     $description = $_POST['description'];
     $layout = $_POST['layout'];
 
-    // on veut supprimer l'image précédente
-    $ancienneTile = Tile::getInstance()->get($id);
-    $ancienneImagePath = ASSETS_PATH . 'img'.DS.$ancienneTile['image'];
-    unlink($ancienneImagePath);
 
-    $source = $_FILES['poster']['tmp_name'];
-    $original = $_FILES['poster']['name'];
-    $original_filename = pathinfo($original, PATHINFO_FILENAME);
-    $original_ext = pathinfo($original, PATHINFO_EXTENSION);
+    if (!empty($_FILES['poster'])) {
 
-    $filename = $original_filename . '_' . time() . '.' . $original_ext;
-    $dest = ASSETS_PATH . 'img'.DS. $filename;
-    move_uploaded_file( $source, $dest);
-    $datas = ['title'=>$title,'description'=>$description, 'image'=>$filename, 'layout'=>$layout];
+      // on veut supprimer l'image précédente
+      $ancienneTile = Tile::getInstance()->get($id);
+      $ancienneImagePath = ASSETS_PATH . 'img'.DS.$ancienneTile['image'];
+      unlink($ancienneImagePath);
 
-    Tile::getInstance()->edit($datas);
+      $source = $_FILES['poster']['tmp_name'];
+      $original = $_FILES['poster']['name'];
+      $original_filename = pathinfo($original, PATHINFO_FILENAME);
+      $original_ext = pathinfo($original, PATHINFO_EXTENSION);
+
+      $filename = $original_filename . '_' . time() . '.' . $original_ext;
+      $dest = ASSETS_PATH . 'img'.DS. $filename;
+      move_uploaded_file( $source, $dest);
+      $datas = ['title'=>$title,'description'=>$description, 'image'=>$filename, 'layout'=>$layout];
+    }else{
+
+    $datas = ['title'=>$title,'description'=>$description, 'layout'=>$layout];
+    }
+
+
+    Tile::getInstance()->edit($id, $datas);
 
     $error = false;
     $resultAdd = 'success';

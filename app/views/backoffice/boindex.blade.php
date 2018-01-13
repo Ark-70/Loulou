@@ -17,8 +17,7 @@ Voir tuiles
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title">Liste tuiles</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              </button>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
             </div>
             <div class="modal-body">
               <table class="table">
@@ -45,17 +44,21 @@ Voir tuiles
 
                 foreach ($tiles as $tile) {
                   ?>
-                  <form action="{{url('/tile/delete')}}" method="POST">
-                    <tr>
-                      <input type="text" name="id" value="<?php echo $tile['id'] ?>" hidden>
+                  <tr>
                       <td><?php echo $tile['id'] ?></td>
                       <td><?php echo $tile['title'] ?></td>
                       <td><?php echo $tile['description'] ?></td>
                       <td><?php echo $tile['layout'] ?></td>
+                    <form action="{{url('/tile/delete')}}" method="POST">
+                      <input type="text" name="id" value="<?php echo $tile['id'] ?>" hidden>
                       <td><button class="btn btn-secondary" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
-                      <td><button id="btnedit" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#editer"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
-                    </tr>
-                  </form>
+                    </form>
+
+                    <form action="{{url('/bo/tile/edit')}}" method="POST">
+                    <input type="text" name="id" value="<?php echo $tile['id'] ?>" hidden>
+                    <td><button type="submit" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
+                    </form>
+                  </tr>
 
                   <?php
                 }
