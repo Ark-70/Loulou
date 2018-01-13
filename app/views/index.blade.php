@@ -16,6 +16,7 @@ Accueil
         @foreach($tiles as $tile)
         <a data-toggle="modal" data-target="#myModal" href="#myGallery" data-slide-to="{{$tile['id']}}"><li>{{$tile['title']}}</li></a>
         @endforeach
+        <a href="{{url('/bo')}}" class="btn btn-primary">Back-Office</a>
       </div>
     </div>
     <nav class="navbar fixed-left navbar-dark">

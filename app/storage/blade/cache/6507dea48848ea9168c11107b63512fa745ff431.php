@@ -1,11 +1,10 @@
-@extends( 'layout' )
-@section('title')
+<?php $__env->startSection('title'); ?>
 Accueil
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 <h1> Back-office </h1>
 
-@yield('warningmessage')
+<?php echo $__env->yieldContent('warningmessage'); ?>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tuile">
 Voir tuiles
@@ -45,7 +44,7 @@ Voir tuiles
 
                 foreach ($tiles as $tile) {
                   ?>
-                  <form action="{{url('/tile/delete')}}" method="POST">
+                  <form action="<?php echo e(url('/tile/delete')); ?>" method="POST">
                     <tr>
                       <input type="text" name="id" value="<?php echo $tile['id'] ?>" hidden>
                       <td><?php echo $tile['id'] ?></td>
@@ -72,22 +71,15 @@ Voir tuiles
       </div>
 <!-- *** *** -->
 
-@yield('formedit')
-
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add">Ajouter</button>
-
-
-
-<!-- ***CACHÉ DANS LE BOUTON AJOUTER *** -->
-<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- ***CACHÉ DANS LE BOUTON ÉDITER *** -->
+<div class="modal fade" id="editer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form action="{{ url('/bo/tile/add') }}" method="POST" enctype="multipart/form-data">
+    <form action="<?php echo e(url('/bo/tile/edit')); ?>" method="POST" enctype="multipart/form-data">
       <div class="modal-content">
 
         <div class="modal-header">
           <h5 class="modal-title">Ajouter une tuile</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-bars"></i></button>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">iCloseFont</button>
         </div>
 
         <div class="modal-body">
@@ -112,7 +104,7 @@ Voir tuiles
           <div class="form-group">
             <label for="layout">Gabarit de tuile</label>
             <select class="form-control" id="layout" name="layout">
-              <option value="full" selected>Image dans son ensemble</option>
+              <option value="full">Image dans son ensemble</option>
               <option value="half">Moitié/moitié : image et texte (image à gauche)</option>
               <option value="half txtfirst">Moitié/moitié : texte et image (texte à gauche)</option>
               <option value="tier">Deux tiers/un tier : image et texte (image à gauche)</option>
@@ -131,4 +123,64 @@ Voir tuiles
   </div>
 </div>
 
-@endsection
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add">Ajouter</button>
+
+
+
+<!-- ***CACHÉ DANS LE BOUTON AJOUTER *** -->
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form action="<?php echo e(url('/bo/tile/add')); ?>" method="POST" enctype="multipart/form-data">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Ajouter une tuile</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">iCloseFont</button>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="form-group">
+            <label for="title">Titre</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Entrer titre">
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" name="description" placeholder="Écrire description"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="poster">Image de la tuile</label>
+            <div class="input-group">
+              <input type="file" id="poster" name="poster" class="form-control" aria-describedby="basic-addon2">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="layout">Gabarit de tuile</label>
+            <select class="form-control" id="layout" name="layout">
+              <option value="full">Image dans son ensemble</option>
+              <option value="half">Moitié/moitié : image et texte (image à gauche)</option>
+              <option value="half txtfirst">Moitié/moitié : texte et image (texte à gauche)</option>
+              <option value="tier">Deux tiers/un tier : image et texte (image à gauche)</option>
+              <option value="tier txtfirst">Un tier/deux tiers : texte et image (texte à gauche)</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make( 'layout' , array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

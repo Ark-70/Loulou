@@ -24,6 +24,26 @@ class BoController extends Controller{
     }
   }
 
+  public function boIndexEdit(){
+    global $blade;
+    if(isset($_SESSION['login'])){
+    // s'il est bien login, index sinon redirigé pour se login
+
+      $tilesList = Tile::getInstance()->getAll();
+      $tileEdit = Tile::getInstance()->get($_POST);
+      echo $blade->render(
+        'backoffice/boindex',
+        [
+          'tiles'=>$tilesList,
+          'tileEdit'=>$tileEdit
+        ]
+      );
+
+    }else{
+      redirect('/login');
+    }
+  }
+
   public function boIndexAddMsg($error,$infoType){
     global $blade;
     // Un switch pour rédiger un petit message à l'user selon le résultat de son formulaire
@@ -45,7 +65,7 @@ class BoController extends Controller{
         $msg.="Vous n'avez pas renseigné le titre.";
         break;
 
-      case 'excerpt':
+      case 'description':
         $msg.="Vous n'avez pas renseigné la description de la tuile.";
         break;
 
@@ -114,7 +134,6 @@ class BoController extends Controller{
    public function testAddForm(){
     //Ici, on teste si le formulaire est bien rempli et valide (extension d'image)
 
-
     $error = false;
     $errorProblem = '';
 
@@ -130,7 +149,7 @@ class BoController extends Controller{
       $errorProblem = 'POST';
     }
 
-    if ($_FILES['poster']['type'] !== 'image/jpeg') {
+    if ($_FILES['poster']['type'] !== 'image/jpeg' && $_FILES['poster']['type'] !== 'image/png') {
       $error = true;
       $errorProblem = 'ext';
     }
@@ -147,7 +166,7 @@ class BoController extends Controller{
     global $blade;
 
     $title = $_POST['title'];
-    $excerpt = $_POST['excerpt'];
+    $description = $_POST['description'];
     $layout = $_POST['layout'];
 
     $source = $_FILES['poster']['tmp_name'];
@@ -158,7 +177,7 @@ class BoController extends Controller{
     $filename = $original_filename . '_' . time() . '.' . $original_ext;
     $dest = ASSETS_PATH . 'img'.DS. $filename;
     move_uploaded_file( $source, $dest);
-    $datas = ['title'=>$title,'description'=>$excerpt, 'image'=>$filename, 'layout'=>$layout];
+    $datas = ['title'=>$title,'description'=>$description, 'image'=>$filename, 'layout'=>$layout];
     // Merci les spaghettis n°5
     Tile::getInstance()->add($datas);
 
@@ -168,6 +187,69 @@ class BoController extends Controller{
 
   }
 
+
+   public function testEditForm(){
+    //Ici, on teste si le formulaire est bien rempli et valide (extension d'image)
+
+    $error = false;
+    $errorProblem = '';
+
+    if(!empty($_POST)){
+      foreach ($_POST as $key => $value) {
+        if(empty($_POST[$key])){
+          $error = true;
+          $errorProblem = $key;
+        }
+      }
+    }else{
+      $error = true;
+      $errorProblem = 'POST';
+    }
+
+    if ($_FILES['poster']['type'] !== 'image/jpeg' && $_FILES['poster']['type'] !== 'image/png') {
+      $error = true;
+      $errorProblem = 'ext';
+    }
+
+    if($error){
+      //ne marche pas sans $this (on doit spécifier l'instanciation)
+      $this->boIndexAddMsg($error, $errorProblem);
+    }else{
+      $this->tileUpdate();
+    }
+  }
+
+   public function tileUpdate(){
+    global $blade;
+
+    // on garde l'id
+    $id = $_POST['id'];
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $layout = $_POST['layout'];
+
+    // on veut supprimer l'image précédente
+    $ancienneTile = Tile::getInstance()->get($id);
+    $ancienneImagePath = ASSETS_PATH . 'img'.DS.$ancienneTile['image'];
+    unlink($ancienneImagePath);
+
+    $source = $_FILES['poster']['tmp_name'];
+    $original = $_FILES['poster']['name'];
+    $original_filename = pathinfo($original, PATHINFO_FILENAME);
+    $original_ext = pathinfo($original, PATHINFO_EXTENSION);
+
+    $filename = $original_filename . '_' . time() . '.' . $original_ext;
+    $dest = ASSETS_PATH . 'img'.DS. $filename;
+    move_uploaded_file( $source, $dest);
+    $datas = ['title'=>$title,'description'=>$description, 'image'=>$filename, 'layout'=>$layout];
+
+    Tile::getInstance()->edit($datas);
+
+    $error = false;
+    $resultAdd = 'success';
+    $this->boIndexAddMsg($error, $resultAdd);
+
+  }
 
 
 
