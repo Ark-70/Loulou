@@ -1,12 +1,7 @@
 $('.navbar-toggler').click(function() {
 
-   $("i").toggleClass("fa-times");
-   $("i").toggleClass("fa-bars");
-
    $(".navbar-toggler>i").toggleClass("fa-times");
    $(".navbar-toggler>i").toggleClass("fa-bars");
-
-
 
 });
 
@@ -19,17 +14,17 @@ $('#btnedit').click(function(){
 $('.tuile>a, .wrapper a').click(function(){
 
   console.log(this);
-  let bite = $(this).data("slide-to");
-  console.log(bite);
-  $('.carousel').carousel(bite);
+  $('.carousel').carousel($(this).data("slide-to"));
 });
 
 
 
+
+// Oui c'est indigeste, mais c'est pour faire correspondre les trois endroits de la page où les ID devraient commencer à 1 au lieu de 0 pour être en correspondance avec la bdd
 let n=$('.p-4>a').length;
 for(var i=1 ; i<=n ; i++){
   $('.tuile:nth-child('+i+')>a,.p-4>a:nth-child('+i+')').data("slide-to", i-1);
-  console.log($('.tuile:nth-child('+i+')>a').data("slide-to"));
+  // console.log($('.tuile:nth-child('+i+')>a').data("slide-to"));
 };
 
 

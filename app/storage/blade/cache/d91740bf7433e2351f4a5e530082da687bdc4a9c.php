@@ -57,14 +57,19 @@ Accueil
 
 
             <?php $__currentLoopData = $tiles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tile): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-              <?php if($tile['id']==0+1): ?>
+              <?php if($tile['id']==1): ?>
             <div class="carousel-item <?php echo e($tile['layout']); ?> active">
               <?php else: ?>
             <div class="carousel-item <?php echo e($tile['layout']); ?>">
               <?php endif; ?>
 
               <img src="assets/img/<?php echo e($tile['image']); ?>" alt="item<?php echo e($tile['id']-1); ?>">
-              <p><?php echo e($tile['description']); ?></p>
+              <p>
+
+              <?php echo e($tile['description']); ?>
+
+
+            </p>
               <div class="carousel-caption"></div>
             </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

@@ -58,14 +58,18 @@ Accueil
 
 
             @foreach($tiles as $tile)
-              @if($tile['id']==0+1)
+              @if($tile['id']==1)
             <div class="carousel-item {{$tile['layout']}} active">
               @else
             <div class="carousel-item {{$tile['layout']}}">
               @endif
 
               <img src="assets/img/{{$tile['image']}}" alt="item{{$tile['id']-1}}">
-              <p>{{$tile['description']}}</p>
+              <p>
+
+              {{$tile['description']}}
+
+            </p>
               <div class="carousel-caption"></div>
             </div>
             @endforeach

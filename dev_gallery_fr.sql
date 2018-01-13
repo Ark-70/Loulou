@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.5.4.1
 -- http://www.phpmyadmin.net
 --
--- Client :  127.0.0.1
--- Généré le :  Mer 08 Novembre 2017 à 16:26
--- Version du serveur :  10.1.19-MariaDB
--- Version de PHP :  5.6.28
+-- Client :  localhost
+-- Généré le :  Sam 13 Janvier 2018 à 03:50
+-- Version du serveur :  5.7.11
+-- Version de PHP :  5.6.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `admin`
+-- Structure de la table `dtwl_admin`
 --
 
 CREATE TABLE `dtwl_admin` (
@@ -36,7 +36,7 @@ CREATE TABLE `dtwl_admin` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `param`
+-- Structure de la table `dtwl_param`
 --
 
 CREATE TABLE `dtwl_param` (
@@ -50,7 +50,7 @@ CREATE TABLE `dtwl_param` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tiles`
+-- Structure de la table `dtwl_tiles`
 --
 
 CREATE TABLE `dtwl_tiles` (
@@ -58,12 +58,12 @@ CREATE TABLE `dtwl_tiles` (
   `title` varchar(100) NOT NULL,
   `description` text NOT NULL,
   `image` varchar(255) NOT NULL,
-  `layout` tinyint(4) NOT NULL,
-  `bg_color_text` varchar(20) NOT NULL,
-  `color_text` varchar(20) NOT NULL,
-  `position` int(11) NOT NULL,
-  `bg_color_image` varchar(20) NOT NULL,
-  `auto_size` tinyint(1) NOT NULL
+  `layout` varchar(15) NOT NULL,
+  `bg_color_text` varchar(20) DEFAULT NULL,
+  `color_text` varchar(20) DEFAULT NULL,
+  `position` int(11) DEFAULT NULL,
+  `bg_color_image` varchar(20) DEFAULT NULL,
+  `auto_size` tinyint(1) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -71,19 +71,19 @@ CREATE TABLE `dtwl_tiles` (
 --
 
 --
--- Index pour la table `admin`
+-- Index pour la table `dtwl_admin`
 --
 ALTER TABLE `dtwl_admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `param`
+-- Index pour la table `dtwl_param`
 --
 ALTER TABLE `dtwl_param`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `tiles`
+-- Index pour la table `dtwl_tiles`
 --
 ALTER TABLE `dtwl_tiles`
   ADD PRIMARY KEY (`id`);
@@ -93,20 +93,20 @@ ALTER TABLE `dtwl_tiles`
 --
 
 --
--- AUTO_INCREMENT pour la table `admin`
+-- AUTO_INCREMENT pour la table `dtwl_admin`
 --
 ALTER TABLE `dtwl_admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT pour la table `param`
+-- AUTO_INCREMENT pour la table `dtwl_param`
 --
 ALTER TABLE `dtwl_param`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT pour la table `tiles`
+-- AUTO_INCREMENT pour la table `dtwl_tiles`
 --
 ALTER TABLE `dtwl_tiles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
