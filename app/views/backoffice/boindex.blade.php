@@ -75,7 +75,7 @@ Voir tuiles
 <!-- ***CACHÉ DANS LE BOUTON ÉDITER *** -->
 <div class="modal fade" id="editer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form action="{{ url('/bo/tile/add') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('/bo/tile/edit') }}" method="POST" enctype="multipart/form-data">
       <div class="modal-content">
 
         <div class="modal-header">
@@ -105,11 +105,11 @@ Voir tuiles
           <div class="form-group">
             <label for="layout">Gabarit de tuile</label>
             <select class="form-control" id="layout" name="layout">
-              <option value="1">Image dans son ensemble</option>
-              <option value="2">Moitié/moitié : image et texte (image à gauche)</option>
-              <option value="3">Moitié/moitié : texte et image (texte à gauche)</option>
-              <option value="4">Deux tiers/un tier : image et texte (image à gauche)</option>
-              <option value="5">Un tier/deux tiers : texte et image (texte à gauche)</option>
+              <option value="full">Image dans son ensemble</option>
+              <option value="half">Moitié/moitié : image et texte (image à gauche)</option>
+              <option value="half txtfirst">Moitié/moitié : texte et image (texte à gauche)</option>
+              <option value="tier">Deux tiers/un tier : image et texte (image à gauche)</option>
+              <option value="tier txtfirst">Un tier/deux tiers : texte et image (texte à gauche)</option>
             </select>
           </div>
 
@@ -163,11 +163,11 @@ Voir tuiles
           <div class="form-group">
             <label for="layout">Gabarit de tuile</label>
             <select class="form-control" id="layout" name="layout">
-              <option value="1">Image dans son ensemble</option>
-              <option value="2">Moitié/moitié : image et texte (image à gauche)</option>
-              <option value="3">Moitié/moitié : texte et image (texte à gauche)</option>
-              <option value="4">Deux tiers/un tier : image et texte (image à gauche)</option>
-              <option value="5">Un tier/deux tiers : texte et image (texte à gauche)</option>
+              <option value="full">Image dans son ensemble</option>
+              <option value="half">Moitié/moitié : image et texte (image à gauche)</option>
+              <option value="half txtfirst">Moitié/moitié : texte et image (texte à gauche)</option>
+              <option value="tier">Deux tiers/un tier : image et texte (image à gauche)</option>
+              <option value="tier txtfirst">Un tier/deux tiers : texte et image (texte à gauche)</option>
             </select>
           </div>
 
