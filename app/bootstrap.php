@@ -13,7 +13,7 @@ $whoops->register();
 
 // blade
 $blade = new duncan3dc\Laravel\BladeInstance(
-  APP_PATH .  'Views',
+  APP_PATH .  'views',
   STORAGE_PATH . 'blade' . DS . 'cache'
 );
 
