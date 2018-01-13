@@ -36,6 +36,9 @@ h2
   left:0px;
   top:0px;
 
+.modal-body h1, .modal-body label{
+  color:black;
+}
 
 
 }
@@ -95,6 +98,5 @@ h2
 {
   display:flex !important;
 }
-
 
 
