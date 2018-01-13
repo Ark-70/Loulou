@@ -64,14 +64,14 @@ Accueil
               @else
             <div class="carousel-item {{$tile['layout']}}">
               @endif
+              <img src="assets/img/{{$tile['image']}}" alt="item{{$tile['id']-1}}">
               <p>
               @if($tile['layout'] !== 'full'){{$tile['description']}}@endif
             </p>
             <div class="carousel-caption">
-              @if($tile['layout']==='full'){{$tile['description']}}@endif
+              @if($tile['layout'] === 'full'){{$tile['description']}}@endif
             </div>
 
-              <img src="assets/img/{{$tile['image']}}" alt="item{{$tile['id']-1}}">
 
               <div class="carousel-caption"></div>
             </div>
