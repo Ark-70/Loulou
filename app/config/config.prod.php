@@ -1,12 +1,12 @@
 <?php
 // Nom de la base de données
-define ('DB_NAME', 'dev.gallery.fr');
+define ('DB_NAME', 'mmiangouetuds');
 // Utilisateur de la base de données SQL
-define ('DB_USER', 'root');
+define ('DB_USER', 'mmiangouetuds');
 // Mot de passe de la basse de données SQL
-define ('DB_PASSWORD', '');
+define ('DB_PASSWORD', 'Q7Eg9YZIE8LUNQu');
 // Adresse de l'hébergement MySQL
-define ('DB_HOST', SERVER_DEV);
+define ('DB_HOST', 'mmiangouetuds.mysql.db');
 // Jeu de caractères
 define ('DB_CHARSET', 'utf8');
 // Préfixe de table
@@ -16,4 +16,3 @@ define('DEBUG', true);
 define('DEBUG_TARGET', 'screen');
 
 define('ROOT_URL', '/dev.gallery.fr');
-define('ROOT', '/dev.gallery.fr');

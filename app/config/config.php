@@ -3,7 +3,7 @@
 // FICHIER : app / config.php
 //
 define( 'SERVER_DEV', 'localhost' );
-define( 'SERVER_PROD', 'gallery-mmi.fr' );
+define( 'SERVER_PROD', 'dtraparic.mmi-angouleme.fr' );
 
 
 $env = $_SERVER[ 'SERVER_NAME' ];
