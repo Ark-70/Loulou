@@ -67,8 +67,8 @@ Accueil
               <img src="assets/img/{{$tile['image']}}" alt="item{{$tile['id']-1}}">
               <p>
               @if($tile['layout'] !== 'full'){{$tile['description']}}@endif
-            </p>
-            <div class="carousel-caption">
+              </p>
+              <div class="carousel-caption">
               @if($tile['layout'] === 'full'){{$tile['description']}}@endif
             </div>
 
