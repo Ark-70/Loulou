@@ -11,7 +11,7 @@
 
         <div class="modal-header">
           <h5 class="modal-title">Ajouter une tuile</h5>
-          <button type="button" class="close edit" data-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+          <a style="color:darkgrey;font-size:1.5em" href="<?php echo e(url('/bo')); ?>"><i class="fa fa-times"></i></a>
         </div>
 
         <div class="modal-body">
@@ -48,7 +48,7 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" id="retouredit" class="close edit btn btn-secondary" data-dismiss="modal">Retour</button>
+        <a href="<?php echo e(url('/bo')); ?>" class="mycloseedit btn btn-secondary" >Retour</a>
         <button type="submit" class="btn btn-primary">Ajouter</button>
       </div>
     </form>

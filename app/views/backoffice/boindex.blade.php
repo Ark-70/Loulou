@@ -34,14 +34,14 @@ Voir tuiles
                 <tbody>
                 <?php
 
-                // Oui j'écris en dur sans faire de boucle sur les champs CAR :
+
+                // J'écris en dur sans faire de boucle sur les champs CAR :
                 // Un problème inexplicable est survenu : lorsque je récupérais un tuple de la bdd avec Tile->getAll(), il me renvoit un tableau avec tous les champs en doublons : un exemplaire avec la clef (d'un tableau associatif) et l'autre avec un numéro d'index
                 //(je précise qu'il n'y a rien d'anormal dans ma bdd sur PhpMyAdmin pourtant. C'est à n'y rien comprendre)
                 //Si vous avez une idée je suis preneur !
 
                 // testez ici vvvvvvvvvvvvvvvvvvvvv
                 // dump($tiles)
-
                 foreach ($tiles as $tile) {
                   ?>
                   <tr>
@@ -90,7 +90,7 @@ Voir tuiles
 
         <div class="modal-header">
           <h5 class="modal-title">Ajouter une tuile</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-bars"></i></button>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
         </div>
 
         <div class="modal-body">

@@ -12,7 +12,7 @@
 
         <div class="modal-header">
           <h5 class="modal-title">Ajouter une tuile</h5>
-          <button type="button" class="close mycloseedit" data-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+          <a style="color:darkgrey;font-size:1.5em" href="{{ url('/bo')}}"><i class="fa fa-times"></i></a>
         </div>
 
         <div class="modal-body">
@@ -49,7 +49,7 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" id="retouredit" class="mycloseedit btn btn-secondary" data-dismiss="modal">Retour</button>
+        <a href="{{ url('/bo')}}" class="mycloseedit btn btn-secondary" >Retour</a>
         <button type="submit" class="btn btn-primary">Ajouter</button>
       </div>
     </form>
