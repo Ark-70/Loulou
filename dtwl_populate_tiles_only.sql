@@ -30,7 +30,7 @@ INSERT INTO `dtwl_tiles` (`id`, `title`, `description`, `image`, `layout`, `bg_c
 (1, 'GrumpyCat', '', 'Cat.jpg', 'full', NULL, NULL, NULL, NULL, NULL),
 (2, 'ZlataillePain', 'Zlataille revient de la boulangerie', 'ZlataillePain.jpg', 'half txtfirst', NULL, NULL, NULL, NULL, NULL),
 (3, 'ZlataillePlage', 'Zlataille va à la plage avec sa jolie bouée', 'ZlataillePlage.jpg', 'half', NULL, NULL, NULL, NULL, NULL),
-(4, 'ZlataillePlongée', 'Zlataille part faire de la plongée !', 'ZlataillePLonge.jpg', 'tier txtfirst', NULL, NULL, NULL, NULL, NULL),
+(4, 'ZlataillePlongée', 'Zlataille part faire de la plongée !', 'ZlataillePlonge.jpg', 'tier txtfirst', NULL, NULL, NULL, NULL, NULL),
 (5, 'ZlatailleCinéma', 'Zlataille viens de voir un super film ! ', 'ZlatailleCine.jpg', 'tier', NULL, NULL, NULL, NULL, NULL),
 (6, 'ZlataillePolice', 'Zlataille joue aux policiers avec son fils', 'ZlataillePolice.jpg', 'full', NULL, NULL, NULL, NULL, NULL),
 (7, 'ZlatailleRPG', 'Zlataille va à la Comic Con avec son cosplay de Gandalf ! ', 'ZlatailleRPG.jpg', 'full', NULL, NULL, NULL, NULL, NULL),
