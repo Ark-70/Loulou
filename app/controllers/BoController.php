@@ -24,6 +24,27 @@ class BoController extends Controller{
     }
   }
 
+  public function boIndexEdit(){
+    global $blade;
+    if(isset($_SESSION['login'])){
+
+      $tilesList = Tile::getInstance()->getAll();
+      $tileEdit = Tile::getInstance()->get($_POST['id']);
+      echo $blade->render(
+        'backoffice/boEdit',
+        [
+          'tiles'=>$tilesList,
+          'tileEdit'=>$tileEdit
+        ]
+      );
+
+    }else{
+      redirect('/login');
+    }
+
+  }
+
+
   public function boIndexAddMsg($error,$infoType){
     global $blade;
     // Un switch pour rédiger un petit message à l'user selon le résultat de son formulaire
