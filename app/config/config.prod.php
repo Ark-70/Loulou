@@ -4,7 +4,7 @@ define ('DB_NAME', 'mmiangouetuds');
 // Utilisateur de la base de données SQL
 define ('DB_USER', 'mmiangouetuds');
 // Mot de passe de la basse de données SQL
-define ('DB_PASSWORD', 'Q7Eg9YZIE8LUNQu');
+define ('DB_PASSWORD', 'VSPDCgAfbTr7');
 // Adresse de l'hébergement MySQL
 define ('DB_HOST', 'mmiangouetuds.mysql.db');
 // Jeu de caractères
