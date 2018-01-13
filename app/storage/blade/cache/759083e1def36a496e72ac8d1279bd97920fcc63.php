@@ -1,8 +1,7 @@
-@extends('layout')
-@section('content')
+<?php $__env->startSection('content'); ?>
 <h1>Coucou tu n'es pas log et tu ne peux pas accéder au backoffice</h1>
 <div class="container">
-  <form action="{{ url('/login') }}" method="POST">
+  <form action="<?php echo e(url('/login')); ?>" method="POST">
     <div class="form-group row">
         <label class="col-2 col-form-label">
           Pseudo :
@@ -22,4 +21,6 @@
     <button class="btn btn-outline-primary">Enregistrer</button>
   </form>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

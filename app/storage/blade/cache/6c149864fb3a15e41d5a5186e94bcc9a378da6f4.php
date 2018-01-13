@@ -63,14 +63,16 @@ Accueil
               <?php else: ?>
             <div class="carousel-item <?php echo e($tile['layout']); ?>">
               <?php endif; ?>
-
-              <img src="assets/img/<?php echo e($tile['image']); ?>" alt="item<?php echo e($tile['id']-1); ?>">
               <p>
               <?php if($tile['layout'] !== 'full'): ?><?php echo e($tile['description']); ?><?php endif; ?>
-              </p>
-              <div class="carousel-caption"><?php $tile['description'] ?>
+            </p>
+            <div class="carousel-caption">
               <?php if($tile['layout']==='full'): ?><?php echo e($tile['description']); ?><?php endif; ?>
-              </div>
+            </div>
+
+              <img src="assets/img/<?php echo e($tile['image']); ?>" alt="item<?php echo e($tile['id']-1); ?>">
+
+              <div class="carousel-caption"></div>
             </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
@@ -91,6 +93,5 @@ Accueil
 
 
 <?php $__env->stopSection(); ?>
-
 
 <?php echo $__env->make( 'layout' , array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

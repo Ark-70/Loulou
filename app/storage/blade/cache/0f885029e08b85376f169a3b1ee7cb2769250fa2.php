@@ -1,33 +1,32 @@
-@extends( 'backoffice/boindex' )
-@section('formedit')
+<?php $__env->startSection('formedit'); ?>
 <!-- ***CACHÉ DANS LE BOUTON ÉDITER *** -->
 <div class="modal in" id="editer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form action="{{ url('/bo/tile/editsave') }}" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="id" value="{{$tileEdit['id']}}">
+    <form action="<?php echo e(url('/bo/tile/editsave')); ?>" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="id" value="<?php echo e($tileEdit['id']); ?>">
       <div class="modal-content">
 
         <div class="modal-header">
           <h5 class="modal-title">Ajouter une tuile</h5>
-          <a style="color:darkgrey;font-size:1.5em" href="{{ url('/bo')}}"><i class="fa fa-times"></i></a>
+          <a style="color:darkgrey;font-size:1.5em" href="<?php echo e(url('/bo')); ?>"><i class="fa fa-times"></i></a>
         </div>
 
         <div class="modal-body">
 
           <div class="form-group">
             <label for="title">Titre</label>
-            <input type="text" class="form-control" id="title" name="title" placeholder="Entrer titre" value="{{$tileEdit['title']}}">
+            <input type="text" class="form-control" id="title" name="title" placeholder="Entrer titre" value="<?php echo e($tileEdit['title']); ?>">
           </div>
 
           <div class="form-group">
             <label for="description">Description</label>
-            <textarea class="form-control" id="description" name="description" placeholder="Écrire description">{{$tileEdit['description']}}</textarea>
+            <textarea class="form-control" id="description" name="description" placeholder="Écrire description"><?php echo e($tileEdit['description']); ?></textarea>
           </div>
 
           <div class="form-group">
             <label for="poster">Image de la tuile</label>
             <div class="input-group">
-              <input type="file" id="poster" name="poster" class="form-control" aria-describedby="basic-addon2" value="{{$tileEdit['image']}}">
+              <input type="file" id="poster" name="poster" class="form-control" aria-describedby="basic-addon2" value="<?php echo e($tileEdit['image']); ?>">
             </div>
           </div>
 
@@ -46,7 +45,7 @@
       </div>
 
       <div class="modal-footer">
-        <a href="{{ url('/bo')}}" class="mycloseedit btn btn-secondary" >Retour</a>
+        <a href="<?php echo e(url('/bo')); ?>" class="mycloseedit btn btn-secondary" >Retour</a>
         <button type="submit" class="btn btn-primary">Ajouter</button>
       </div>
     </form>
@@ -54,4 +53,6 @@
 </div>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make( 'backoffice/boindex' , array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
