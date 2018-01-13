@@ -34,27 +34,26 @@ Voir tuiles
                 <tbody>
                 <?php
 
-                // Oui je fais une boucle simple avec un index CAR :
+                // Oui j'écris en dur sans faire de boucle sur les champs CAR :
                 // Un problème inexplicable est survenu : lorsque je récupérais un tuple de la bdd avec Tile->getAll(), il me renvoit un tableau avec tous les champs en doublons : un exemplaire avec la clef (d'un tableau associatif) et l'autre avec un numéro d'index
                 //(je précise qu'il n'y a rien d'anormal dans ma bdd sur PhpMyAdmin pourtant. C'est à n'y rien comprendre)
                 //Si vous avez une idée je suis preneur !
 
+                // testez ici vvvvvvvvvvvvvvvvvvvvv
                 // dump($tiles)
 
                 foreach ($tiles as $tile) {
                   ?>
-                  <tr>
-
-                    <?php
-                    for ($i=0; $i < 4; $i++) {
-                      ?>
-                      <td><?php echo $tile[$i] ?></td>
-                      <?php
-                    }
-                     ?>
-                      <td></td>
-
-                  </tr>
+                  <form action="{{url('/tile/delete')}}" method="POST">
+                    <tr>
+                      <input type="text" name="id" value="<?php echo $tile['id'] ?>" hidden>
+                      <td><?php echo $tile['id'] ?></td>
+                      <td><?php echo $tile['title'] ?></td>
+                      <td><?php echo $tile['description'] ?></td>
+                      <td><?php echo $tile['layout'] ?></td>
+                      <td><button type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
+                    </tr>
+                  </form>
 
                   <?php
                 }
@@ -78,7 +77,7 @@ Voir tuiles
 <!-- ***CACHÉ DANS LE BOUTON AJOUTER *** -->
 <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form action="{{ url('/prepAdd') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('/bo/tile/add') }}" method="POST" enctype="multipart/form-data">
       <div class="modal-content">
 
         <div class="modal-header">

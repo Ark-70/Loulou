@@ -19,6 +19,10 @@ h1,label{
   text-align: center;
 }
 
+.modal-body h1, .modal-body label{
+  color:black;
+}
+
 .wrapper
 {
   position:absolute;
