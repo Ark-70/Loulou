@@ -211,7 +211,6 @@ class BoController extends Controller{
     // On veut que si rien n'est rentré comme image, on garde l'ancienne image
     // Si le nom et le type de l'image est vide, alors aucune image n'a été ajoutée donc on reprend l'ancienne image
 
-    dump($_FILES['poster']);
     if(!empty($_FILES['poster']['type'])){
       if ($_FILES['poster']['type'] !== 'image/jpeg' && $_FILES['poster']['type'] !== 'image/png') {
         $error = true;
@@ -242,7 +241,9 @@ class BoController extends Controller{
       // on veut supprimer l'image précédente
       $ancienneTile = Tile::getInstance()->get($id);
       $ancienneImagePath = ASSETS_PATH . 'img'.DS.$ancienneTile['image'];
-      unlink($ancienneImagePath);
+      try {
+        unlink($ancienneImagePath);
+      } catch (Exception $e) {}
 
       $source = $_FILES['poster']['tmp_name'];
       $original = $_FILES['poster']['name'];
