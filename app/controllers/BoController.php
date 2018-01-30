@@ -241,9 +241,11 @@ class BoController extends Controller{
       // on veut supprimer l'image précédente
       $ancienneTile = Tile::getInstance()->get($id);
       $ancienneImagePath = ASSETS_PATH . 'img'.DS.$ancienneTile['image'];
-      try {
+
+      // supprime seulement si elle existe encore, sinon ne fais rien
+      if (file_exists($ancienneImagePath)) {
         unlink($ancienneImagePath);
-      } catch (Exception $e) {}
+      }
 
       $source = $_FILES['poster']['tmp_name'];
       $original = $_FILES['poster']['name'];
