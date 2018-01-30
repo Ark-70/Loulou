@@ -66,8 +66,8 @@ Accueil
               <img src="assets/img/<?php echo e($tile['image']); ?>" alt="item<?php echo e($tile['id']-1); ?>">
               <p>
               <?php if($tile['layout'] !== 'full'): ?><?php echo e($tile['description']); ?><?php endif; ?>
-            </p>
-            <div class="carousel-caption">
+              </p>
+              <div class="carousel-caption">
               <?php if($tile['layout'] === 'full'): ?><?php echo e($tile['description']); ?><?php endif; ?>
             </div>
 

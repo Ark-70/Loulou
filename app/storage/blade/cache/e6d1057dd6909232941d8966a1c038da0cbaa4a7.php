@@ -1,7 +1,4 @@
 <?php $__env->startSection('formedit'); ?>
-<script>
-
-</script>
 <!-- ***CACHÉ DANS LE BOUTON ÉDITER *** -->
 <div class="modal in" id="editer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -23,7 +20,7 @@
 
           <div class="form-group">
             <label for="description">Description</label>
-            <textarea class="form-control" id="description" name="description" placeholder="Écrire description" value="<?php echo e($tileEdit['description']); ?>"></textarea>
+            <textarea class="form-control" id="description" name="description" placeholder="Écrire description"><?php echo e($tileEdit['description']); ?></textarea>
           </div>
 
           <div class="form-group">

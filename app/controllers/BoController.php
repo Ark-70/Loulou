@@ -209,7 +209,10 @@ class BoController extends Controller{
     }
 
     // On veut que si rien n'est rentré comme image, on garde l'ancienne image
-    if(!empty($_FILES['poster']['name'] && !empty($_FILES['poster']['type']))){
+    // Si le nom et le type de l'image est vide, alors aucune image n'a été ajoutée donc on reprend l'ancienne image
+
+    dump($_FILES['poster']);
+    if(!empty($_FILES['poster']['type'])){
       if ($_FILES['poster']['type'] !== 'image/jpeg' && $_FILES['poster']['type'] !== 'image/png') {
         $error = true;
         $errorProblem = 'ext';
@@ -234,7 +237,7 @@ class BoController extends Controller{
     $layout = $_POST['layout'];
 
 
-    if (!empty($_FILES['poster'])) {
+    if (!empty($_FILES['poster']['type'])) {
 
       // on veut supprimer l'image précédente
       $ancienneTile = Tile::getInstance()->get($id);
@@ -251,8 +254,7 @@ class BoController extends Controller{
       move_uploaded_file( $source, $dest);
       $datas = ['title'=>$title,'description'=>$description, 'image'=>$filename, 'layout'=>$layout];
     }else{
-
-    $datas = ['title'=>$title,'description'=>$description, 'layout'=>$layout];
+      $datas = ['title'=>$title,'description'=>$description, 'layout'=>$layout];
     }
 
 
