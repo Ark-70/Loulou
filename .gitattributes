@@ -1,0 +1,3 @@
+vendor/* linguist-vendored
+storage/blade/cache/* linguist-vendored
+font-awesome-4.7.0/* linguist-vendored
